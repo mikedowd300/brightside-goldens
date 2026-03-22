@@ -1,0 +1,25 @@
+{
+  "brand": "Brightside Goldens",
+  "tagline": "Home-raised golden retrievers with gentle temperaments and bright spirits.",
+  "intro": "Brightside Goldens is a warm, family-focused breeder experience built around healthy puppies, thoughtful socialization, and happy homes.",
+  "announcement": "Now accepting interest for our upcoming summer litter. Reach out to learn about timing, temperament, and next steps.",
+  "highlights": [
+    {
+      "title": "Raised with care",
+      "detail": "Puppies are introduced to everyday sounds, routines, and family interaction from the beginning."
+    },
+    {
+      "title": "Clear communication",
+      "detail": "Families get updates on availability, milestones, and what to expect before take-home day."
+    },
+    {
+      "title": "Golden personalities",
+      "detail": "Brightside focuses on sweet, confident, affectionate companions that fit beautifully into family life."
+    }
+  ],
+  "contact": {
+    "email": "hello@brightsidegoldens.com",
+    "phone": "(555) 867-5309",
+    "location": "Colorado"
+  }
+}

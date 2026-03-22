@@ -1,0 +1,149 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  color: #1f2a18;
+}
+
+.page-shell {
+  min-height: 100vh;
+  padding: 3rem 1.5rem 4rem;
+  background:
+    radial-gradient(circle at top left, rgba(255, 215, 140, 0.85), transparent 30%),
+    linear-gradient(160deg, #fff8ec 0%, #f8efd9 45%, #efe0c0 100%);
+}
+
+.hero,
+.contact-panel {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.hero-copy,
+.hero-card,
+.contact-panel,
+.status-card {
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(94, 67, 20, 0.12);
+}
+
+.hero-copy {
+  padding: 3rem;
+  background: rgba(255, 252, 246, 0.88);
+  backdrop-filter: blur(10px);
+}
+
+.hero-card {
+  padding: 2.5rem;
+  background: #8da663;
+  color: #fdf8ef;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  line-height: 0.95;
+  max-width: 10ch;
+}
+
+.intro {
+  max-width: 34rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 1.5rem 0 0;
+}
+
+.announcement {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 20px;
+  background: #f1dfb6;
+}
+
+.announcement span,
+dt {
+  font-weight: 700;
+}
+
+.highlight-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.highlight-list article {
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.highlight-list p,
+dd,
+.announcement p,
+.contact-panel p {
+  margin: 0.45rem 0 0;
+  line-height: 1.6;
+}
+
+.contact-panel {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 2.4rem 2.6rem;
+  background: #fffdf8;
+}
+
+dl {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+dd {
+  margin-left: 0;
+}
+
+.status-card {
+  width: min(1120px, 100%);
+  margin: 2rem auto 0;
+  padding: 2rem;
+  background: rgba(255, 252, 246, 0.88);
+}
+
+.error {
+  color: #872e2e;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .contact-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy,
+  .hero-card,
+  .contact-panel {
+    padding: 2rem;
+  }
+}
