@@ -1,25 +1,401 @@
 {
   "brand": "Brightside Goldens",
-  "tagline": "Home-raised golden retrievers with gentle temperaments and bright spirits.",
-  "intro": "Brightside Goldens is a warm, family-focused breeder experience built around healthy puppies, thoughtful socialization, and happy homes.",
-  "announcement": "Now accepting interest for our upcoming summer litter. Reach out to learn about timing, temperament, and next steps.",
-  "highlights": [
-    {
-      "title": "Raised with care",
-      "detail": "Puppies are introduced to everyday sounds, routines, and family interaction from the beginning."
-    },
-    {
-      "title": "Clear communication",
-      "detail": "Families get updates on availability, milestones, and what to expect before take-home day."
-    },
-    {
-      "title": "Golden personalities",
-      "detail": "Brightside focuses on sweet, confident, affectionate companions that fit beautifully into family life."
-    }
-  ],
-  "contact": {
-    "email": "hello@brightsidegoldens.com",
-    "phone": "(555) 867-5309",
-    "location": "Colorado"
+  "home": {
+    "highlights": [
+      "Hand Raised with Love",
+      "Champion Sired / Grand Sired",
+      "Imported European Bloodlines",
+      "All OFA and Genetic Clearances",
+      "Neurological Stimulation / Socialization",
+      "Health Guarantee",
+      "AKC Registered",
+      "Volhard Temperament Tested",
+      "Stud Service Available"
+    ],
+    "slideshowImages": [
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496746/b7c4fbab1104f4bce0853b10f7936de2_y5stqa.jpg",
+        "alt": "A golden retriever puppy yawning in a basket",
+        "caption": "The earliest weeks are all about warmth, comfort, and a healthy start."
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774227451/IMG_8964_xpmoq8.jpg",
+        "alt": "Golden retriever puppies playing together",
+        "caption": "Playtime helps puppies build confidence, coordination, and curiosity."
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774226274/puppy-under-chair_qqwxpv.png",
+        "alt": "A golden retriever puppy being held",
+        "caption": "Human connection starts early and stays central to the Brightside approach."
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496747/IMG_6637_frb3zt.jpg",
+        "alt": "This is Gallo",
+        "caption": "This bear tastes good"
+      }
+    ]
+  },
+  "puppies": {
+    "title": "Current and Expected Litters",
+    "intro": "We have two summer litters on their way!",
+    "litters": [
+      {
+        "status": "PLANNED",
+        "title": "Late Summer Planned Litter",
+        "timeframeText": "We expect this litter to arrive in late summer 2026. Timing may shift a bit, but we will share updates as the due window gets closer.",
+        "sire": {
+          "name": "Gallo",
+          "image": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496746/b7c4fbab1104f4bce0853b10f7936de2_y5stqa.jpg",
+          "dogAnchorId": "gallo"
+        },
+        "mother": {
+          "name": "Brightwater June",
+          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/june.jpg",
+          "dogAnchorId": "brightwater-june"
+        },
+        "puppyImages": [
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-yawn.jpg",
+            "alt": "A golden retriever puppy yawning in a basket",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-play.jpg",
+            "alt": "Golden retriever puppies playing together",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-snuggle.jpg",
+            "alt": "A golden retriever puppy being held",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-yawn.jpg",
+            "alt": "A golden retriever puppy yawning in a basket",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-play.jpg",
+            "alt": "Golden retriever puppies playing together",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-snuggle.jpg",
+            "alt": "A golden retriever puppy being held",
+            "caption": ""
+          }
+        ]
+      },
+      {
+        "status": "HOMED",
+        "title": "Early June Expected Litter",
+        "timeframeText": "This litter is expected to arrive during the first week of June 2026.",
+        "sire": {
+          "name": "Sunny Ridge Theo",
+          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/theo.jpg",
+          "dogAnchorId": "sunny-ridge-theo"
+        },
+        "mother": {
+          "name": "Brightwater June",
+          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/june.jpg",
+          "dogAnchorId": "brightwater-june"
+        },
+        "puppyImages": [
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-play.jpg",
+            "alt": "Golden retriever puppies playing together",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-snuggle.jpg",
+            "alt": "A golden retriever puppy being held",
+            "caption": ""
+          }
+        ]
+      },
+      {
+        "status": "ARRIVED",
+        "title": "Spring Litter Has Arrived",
+        "readyToGoHomeText": "These puppies will be ready to go home in early May 2026.",
+        "sire": {
+          "name": "Sunny Ridge Theo",
+          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/theo.jpg",
+          "dogAnchorId": "sunny-ridge-theo"
+        },
+        "mother": {
+          "name": "Meadow Bloom Ivy",
+          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/ivy.jpg",
+          "dogAnchorId": "meadow-bloom-ivy"
+        },
+        "puppyImages": [
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-yawn.jpg",
+            "alt": "A golden retriever puppy yawning in a basket",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-play.jpg",
+            "alt": "Golden retriever puppies playing together",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-snuggle.jpg",
+            "alt": "A golden retriever puppy being held",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-yawn.jpg",
+            "alt": "A golden retriever puppy yawning in a basket",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-play.jpg",
+            "alt": "Golden retriever puppies playing together",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-snuggle.jpg",
+            "alt": "A golden retriever puppy being held",
+            "caption": ""
+          }
+        ]
+      },
+      {
+        "status": "HOMED",
+        "title": "Archived Winter Litter",
+        "sire": {
+          "name": "Copper Lane Huck",
+          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/finn.jpg",
+          "dogAnchorId": "copper-lane-huck"
+        },
+        "mother": {
+          "name": "Brightwater Junes",
+          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/june.jpg",
+          "dogAnchorId": "brightwater-junes"
+        },
+        "timeframeText": "A long time ago",
+        "puppyImages": []
+      }
+    ]
+  },
+  "ourBoys": {
+    "title": "If you remove this text in the admin page",
+    "intro": "and this text too, this whole component will disappear from this screen",
+    "dogs": [
+      {
+        "active": true,
+        "anchorId": "gallo",
+        "name": "Gallo",
+        "subtitle": "Calm, observant, and incredibly gentle",
+        "description": "Gallo brings a steady, reassuring presence and a kind temperament that shows up in every interaction.",
+        "ctaText": "Ask us about using Gallo as your stud.",
+        "details": [
+          "AKC# SS06748101",
+          "DNA# V871938",
+          "Hips: FCI A/A",
+          "Elbows: FCI 0/0",
+          "Heart: (Cardiologist) Clear",
+          "Eyes: (Ophthalmologist) Normal",
+          "Genetic Panel: PRCD, PRA 1&2, DM, MD, NCL, ICT 1&2, RD, OI, CMS, DEB: ALL CLEAR"
+        ],
+        "images": [
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496747/IMG_gallo_3.jpg",
+            "alt": "A male golden retriever sitting in a meadow"
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496746/3203708b15f138325f381597cc81f453_i5myq8.jpg",
+            "alt": "Gallo being cute"
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496745/IMG_0189_ztj3ly.jpg",
+            "alt": "aaaaaaa"
+          }
+        ]
+      },
+      {
+        "active": false,
+        "anchorId": "copper-lane-finn",
+        "name": "Copper Lane Finn",
+        "subtitle": "Playful confidence with a sweet heart",
+        "description": "Finn is outgoing, affectionate, and always ready to lean into family life with enthusiasm.",
+        "ctaText": "Ask us about using Copper Lane Finn as your stud.",
+        "details": [
+          "AKC# SS06748101",
+          "DNA# V871938",
+          "Hips: FCI A/A",
+          "Elbows: FCI 0/0",
+          "Heart: (Cardiologist) Clear",
+          "Eyes: (Ophthalmologist) Normal",
+          "Genetic Panel: PRCD, PRA 1&2, DM, MD, NCL, ICT 1&2, RD, OI, CMS, DEB: ALL CLEAR"
+        ],
+        "images": [
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/finn.jpg",
+            "alt": "A male golden retriever standing near a split rail fence"
+          }
+        ]
+      },
+      {
+        "active": true,
+        "anchorId": "copper-lane-huck",
+        "name": "Copper Lane Huck",
+        "subtitle": "Playful confidence with a sweet heart",
+        "description": "Huck is outgoing, affectionate, and always ready to lean into family life with enthusiasm.",
+        "ctaText": "Ask us about using Copper Lane Huck as your stud.",
+        "details": [
+          "AKC# SS06748101",
+          "DNA# V871938",
+          "Hips: FCI A/A",
+          "Elbows: FCI 0/0",
+          "Heart: (Cardiologist) Clear",
+          "Eyes: (Ophthalmologist) Normal",
+          "Genetic Panel: PRCD, PRA 1&2, DM, MD, NCL, ICT 1&2, RD, OI, CMS, DEB: ALL CLEAR"
+        ],
+        "images": [
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/finn.jpg",
+            "alt": "A male golden retriever standing near a split rail fence"
+          }
+        ]
+      },
+      {
+        "active": false,
+        "anchorId": "the-invisible-dog",
+        "name": "The invisible dog",
+        "subtitle": "",
+        "description": "",
+        "ctaText": "",
+        "details": [],
+        "images": [
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/finn.jpg",
+            "alt": ""
+          }
+        ]
+      }
+    ]
+  },
+  "ourGirls": {
+    "title": "Bright, loving girls who set the tone for the program.s",
+    "intro": "Our girls are at the heart of Brightside Goldens. They combine loving temperaments, great instincts, and the calm confidence we value most.",
+    "dogs": [
+      {
+        "active": true,
+        "anchorId": "meadow-bloom-ivy",
+        "name": "Meadow Bloom Ivy",
+        "subtitle": "Warm, attentive, and beautifully balanced",
+        "description": "Ivy is the kind of dog who settles a room and still keeps a spark of playful curiosity.",
+        "ctaText": "",
+        "details": [
+          "AKC# SS11223344",
+          "DNA# V998877",
+          "Hips: FCI A/A",
+          "Elbows: FCI 0/0",
+          "Heart: (Cardiologist) Clear",
+          "Eyes: (Ophthalmologist) Normal"
+        ],
+        "images": [
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/ivy.jpg",
+            "alt": "A female golden retriever relaxing on a porch"
+          }
+        ]
+      },
+      {
+        "active": true,
+        "anchorId": "brightwater-june",
+        "name": "Brightwater June",
+        "subtitle": "Happy, social, and deeply connected",
+        "description": "June is affectionate, biddable, and naturally at ease with both children and adults.",
+        "ctaText": "",
+        "details": [
+          "AKC# SS06748101",
+          "DNA# V871938",
+          "Hips: FCI A/A",
+          "Elbows: FCI 0/0",
+          "Heart: (Cardiologist) Clear",
+          "Eyes: (Ophthalmologist) Normal",
+          "Genetic Panel: PRCD, PRA 1&2, DM, MD, NCL, ICT 1&2, RD, OI, CMS, DEB: ALL CLEAR"
+        ],
+        "images": [
+          {
+            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/june.jpg",
+            "alt": "A female golden retriever looking toward the camera in a field"
+          }
+        ]
+      }
+    ]
+  },
+  "aboutUs": {
+    "title": "",
+    "intro": "",
+    "paragraphs": [
+      "Here at Brightside, our goal is simple but lofty! To raise the “Cream of the Creams”: English Goldens who will be ideal family members, with a sweet, trainable, therapy type temperament, correct “European standard” conformation, and thorough health and genetic testing to help them live their best life with their forever families!",
+      "Our Golden journey began in 2015 with our first Goldie, Bruce. We absolutely fell in love with this wonderful breed. It is no wonder they inspire so much loyalty! With their intelligence, loyalty, personality and that special attunement to people…Goldens are just special!",
+      "It was a good time in our family’s life to allow a lifelong dream of raising dogs in the country to be accomplished, and raising puppies for us is now a total family endeavor. We are there with them from their first breath, to the day we place them in the arms of their forever families.",
+      "When I visited Europe, and saw the Goldens there, which are slightly blockier, stockier, and often lighter (the European standard allows for a cream colored dog) than the American bred dogs, I decided that was the direction I wanted to go.",
+      "We have learned a lot along the way and we continue to research! We undertake several different protocols to help our pups become ideal family members. We socialize our pups with our extended family and friends, and practice Early Neurological Stimulation, (which has many benefits: a more graduated stress response in your adult dog, improved trainability, and a stronger immune system), as well as starting them on potty training, and name recall.",
+      "Our parents have all their health clearances (hips, elbows, eyes and heart) and genetic testing done for the common genetic diseases which affect Goldens, so pups are guaranteed clear/unaffected, including for both ICT 1 & 2, which is the recently discovered, nastier version of ICT in Goldens.",
+      "We offer a health guarantee and pups go home throughly vet checked, with first shots and de-worming done.",
+      "We offer ongoing help and support if desired. Many of our puppy families send us updates and we love to hear how happy the pups are in their new families.",
+      "We offer limited (pet) registration, ask about full registration. These pups are awesome prospects to found a program on.",
+      "We are in the Denver, Colorado area but can arrange delivery just about anywhere and have had many pups go out of state, coast to coast, as far as Maine, Florida, California and Hawaii!"
+    ]
+  },
+  "contactUs": {
+    "title": "Reach out to talk about litters, timing, and next steps.",
+    "intro": "We would love to hear from you if you are interested in a Brightside Goldens puppy or want to learn more about our program."
+  },
+  "faqs": {
+    "items": [
+      {
+        "question": "What is the difference between an “English Golden” and an “American Golden”?",
+        "answer": [
+          "All Golden Retrievers were bred from European dogs because the breed originated in Scotland. As the breed developed in different countries, variations appeared. The European standard now calls for a stockier, blockier dog and allows for a lighter coat, called a “cream,” hence the broadly used term “English Cream.” The American bred dogs tend to be leggier, more lightly built (although there is a lot of variety in type!), and energetic, especially the field bred dogs. The American standard allows for a “red” dog, which the European standard does not.",
+          "The AKC allows cream-coated Goldens to be registered as “light Goldens.”"
+        ]
+      },
+      {
+        "question": "Is there a big difference in temperament between the two types?",
+        "answer": [
+          "In my experience, my European or “English” dogs are more settled and trainable than the American Goldens I have met or owned. I have heard the same from other people, including trainers, who say they are preferred for service or therapy work for this reason. Just like people, though, there can be wide personality differences, even among the types!"
+        ]
+      },
+      {
+        "question": "Are your puppies good candidates for becoming service or therapy dogs?",
+        "answer": [
+          "Yes! If you are looking for a service or therapy dog, please let us know. We have Volhard testing available to aid in your search for the perfect fit."
+        ]
+      },
+      {
+        "question": "Is there a difference in cancer rates between the European and American dogs?",
+        "answer": [
+          "There was a study done that seems to indicate that, but I don’t feel comfortable making that claim myself. We await more conclusive evidence about Goldens and cancer as more information comes out from the lifetime study!"
+        ]
+      },
+      {
+        "question": "When do you recommend spaying and neutering?",
+        "answer": [
+          "We recommend waiting until at least 12 months for males, and until at least the first heat cycle for girls. The skeletal difference between a dog altered at 6 months and 12 months is staggering, and hormones play important roles in development of structure, particularly long bone growth and ligaments, etc.",
+          "We offer helpful guidelines for feeding, training, and general canine well-being, which we pass along to our puppy families. We love this breed and love to share what we have learned through our years of experience and continuing research."
+        ]
+      },
+      {
+        "question": "What is your process for reserving a puppy?",
+        "answer": [
+          "eeee",
+          "hhhhh"
+        ]
+      },
+      {
+        "question": "Can you tell me more about how your puppies are raised?",
+        "answer": [
+          "qqq",
+          "eee",
+          "www"
+        ]
+      }
+    ]
   }
 }

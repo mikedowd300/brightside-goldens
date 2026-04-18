@@ -1,51 +1,25 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, inject } from '@angular/core';
-
-type PuppyHighlight = {
-  title: string;
-  detail: string;
-};
-
-type ContactInfo = {
-  email: string;
-  phone: string;
-  location: string;
-};
-
-type SiteData = {
-  brand: string;
-  tagline: string;
-  intro: string;
-  announcement: string;
-  highlights: PuppyHighlight[];
-  contact: ContactInfo;
-};
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { hasAdminAccess } from './admin-access';
+import { ContentService } from './content.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
-  private readonly http = inject(HttpClient);
+export class AppComponent {
+  protected readonly siteContent$ = inject(ContentService).getSiteContent();
+  private readonly router = inject(Router);
 
-  data: SiteData | null = null;
-  loading = true;
-  error = '';
+  protected get isAdminRoute(): boolean {
+    return this.router.url.startsWith('/brightside-studio');
+  }
 
-  ngOnInit(): void {
-    this.http.get<SiteData>('/api/site-data').subscribe({
-      next: (data) => {
-        this.data = data;
-        this.loading = false;
-      },
-      error: () => {
-        this.error = 'We could not load Brightside Goldens right now.';
-        this.loading = false;
-      }
-    });
+  protected get showAdminLink(): boolean {
+    return hasAdminAccess();
   }
 }

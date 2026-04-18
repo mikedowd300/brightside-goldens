@@ -1,0 +1,72 @@
+<article class="litter-card">
+  <div class="litter-header">
+    <p class="status-pill">{{ litter.status.replaceAll('_', ' ') }}</p>
+    <h2>{{ litter.title }}</h2>
+  </div>
+
+  <div class="parents-grid">
+    <button type="button" class="parent-card" (click)="openDogModal('Sire')">
+      <img [src]="sireImageUrl" [alt]="sireImageAlt" loading="lazy" />
+      <div class="parent-copy">
+        <span>Sire</span>
+        <h3>{{ litter.sire.name }}</h3>
+      </div>
+    </button>
+
+    <button type="button" class="parent-card" (click)="openDogModal('Mother')">
+      <img [src]="motherImageUrl" [alt]="motherImageAlt" loading="lazy" />
+      <div class="parent-copy">
+        <span>Mother</span>
+        <h3>{{ litter.mother.name }}</h3>
+      </div>
+    </button>
+  </div>
+
+  <p class="timing-copy" *ngIf="(litter.status === 'PLANNED' || litter.status === 'ON_THE_WAY') && litter.timeframeText">
+    {{ litter.timeframeText }}
+  </p>
+
+  <div class="arrival-copy" *ngIf="litter.status === 'ARRIVED'">
+    <p *ngIf="litter.readyToGoHomeText">{{ litter.readyToGoHomeText }}</p>
+    <p class="cta-copy">
+      <a class="cta-link" routerLink="/contact-us">Contact us</a>
+      to set up an appointment to select a puppy.
+    </p>
+  </div>
+
+  <section
+    class="previous-litters"
+    *ngIf="(litter.status === 'PLANNED' || litter.status === 'ON_THE_WAY') && litter.puppyImages?.length"
+  >
+    <div class="section-copy">
+      <h3>Puppies from previous litters with this sire and mother</h3>
+    </div>
+
+    <div class="image-grid">
+      <figure *ngFor="let image of litter.puppyImages">
+        <img [src]="image.url" [alt]="image.alt" loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="arrived-puppies" *ngIf="litter.status === 'ARRIVED' && litter.puppyImages?.length">
+    <div class="section-copy">
+      <h3>Scroll to view the current litter</h3>
+    </div>
+
+    <div class="puppy-strip">
+      <figure *ngFor="let image of litter.puppyImages">
+        <img [src]="image.url" [alt]="image.alt" loading="lazy" />
+      </figure>
+    </div>
+  </section>
+</article>
+
+<div class="dog-modal-overlay" *ngIf="activeDog" (click)="closeDogModal()">
+  <div class="dog-modal-card" (click)="$event.stopPropagation()">
+    <button type="button" class="modal-close" aria-label="Close dog profile" (click)="closeDogModal()">
+      Close
+    </button>
+    <app-dog-card [dog]="activeDog" />
+  </div>
+</div>

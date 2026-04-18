@@ -1,0 +1,31 @@
+<ng-container *ngIf="vm$ | async as site">
+  <div class="faqs-page-shell">
+    <section class="faq-list" *ngIf="site.faqs.items.length">
+      <article
+        class="faq-item"
+        *ngFor="let item of site.faqs.items; let i = index"
+        [class.open]="isOpen(i)"
+      >
+        <button
+          type="button"
+          class="faq-trigger"
+          [attr.aria-expanded]="isOpen(i)"
+          (click)="toggleAccordion(i)"
+        >
+          <span>{{ item.question }}</span>
+          <span class="faq-indicator" aria-hidden="true"></span>
+        </button>
+
+        <div class="faq-answer-wrap" [class.open]="isOpen(i)">
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p *ngFor="let paragraph of item.answer">{{ paragraph }}</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <app-footer-links />
+  </div>
+</ng-container>

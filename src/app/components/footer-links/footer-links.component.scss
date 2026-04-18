@@ -1,0 +1,163 @@
+:host {
+  display: block;
+  margin-top: auto;
+}
+
+.contact-panel {
+  width: min(1120px, 100%);
+  min-width: 299px;
+  margin: 0 auto;
+  display: grid;
+  padding: 2.4rem 2.6rem;
+  background: transparent;
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #2d5f69;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.social-link {
+  justify-content: center;
+  min-width: 4.25rem;
+  padding: 0.4rem;
+}
+
+.social-link svg {
+  width: 2.7rem;
+  height: 2.7rem;
+}
+
+.instagram-link {
+  padding: 0.22rem;
+}
+
+.instagram-link svg {
+  width: 3.1rem;
+  height: 3.1rem;
+}
+
+@media (max-width: 900px) {
+  .contact-panel {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .footer-links {
+    gap: 0.65rem;
+  }
+
+  .footer-links a {
+    font-size: 1rem;
+    padding: 0.45rem 0.55rem;
+  }
+
+  .social-link {
+    min-width: 3.1rem;
+    padding: 0.28rem;
+  }
+
+  .social-link svg {
+    width: 2.05rem;
+    height: 2.05rem;
+  }
+
+  .instagram-link {
+    padding: 0.16rem;
+  }
+
+  .instagram-link svg {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .footer-links {
+    gap: 0.45rem;
+  }
+
+  .footer-links a {
+    font-size: 0.92rem;
+    padding: 0.35rem 0.42rem;
+  }
+
+  .social-link {
+    min-width: 2.65rem;
+    padding: 0.18rem;
+  }
+
+  .social-link svg {
+    width: 1.78rem;
+    height: 1.78rem;
+  }
+
+  .instagram-link {
+    padding: 0.08rem;
+  }
+
+  .instagram-link svg {
+    width: 2.02rem;
+    height: 2.02rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .contact-panel {
+    padding: 16px 0;
+  }
+
+  .footer-links {
+    gap: 0.4rem;
+  }
+
+  .footer-links a {
+    font-size: 0.88rem;
+    padding: 0.32rem 0.38rem;
+  }
+
+  .footer-links a:nth-child(-n + 2) {
+    max-width: 4.8rem;
+    white-space: normal;
+    line-height: 1.1;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .about-link {
+    width: 4.1rem;
+  }
+
+  .social-link {
+    min-width: 2.45rem;
+    padding: 0.14rem;
+  }
+
+  .social-link svg {
+    width: 1.65rem;
+    height: 1.65rem;
+  }
+
+  .instagram-link svg {
+    width: 1.88rem;
+    height: 1.88rem;
+  }
+}

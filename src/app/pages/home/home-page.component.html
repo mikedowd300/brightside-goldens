@@ -1,0 +1,38 @@
+<ng-container *ngIf="homeContent$ | async as content; else loading">
+  <div class="home-page-shell">
+    <section class="home-shell">
+      <div class="slideshow-panel">
+        <div class="slideshow-frame" *ngIf="content.slideshowImages.length; else emptyState">
+          <img
+            *ngFor="let image of content.slideshowImages; let i = index"
+            [src]="image.url"
+            [alt]="image.alt"
+            [style.opacity]="getSlideOpacity(i, content)"
+            loading="lazy"
+          />
+        </div>
+
+        <ng-template #emptyState>
+          <div class="slideshow-frame placeholder">
+            <img src="/brightside-image-placeholder.svg" alt="Brightside Goldens placeholder image" />
+          </div>
+        </ng-template>
+      </div>
+
+    <div class="highlight-panel" *ngIf="content.highlights?.length">
+      <h2>Brightside Goldens</h2>
+      <ul class="highlight-list">
+        <li *ngFor="let highlight of content.highlights">{{ highlight }}</li>
+      </ul>
+    </div>
+  </section>
+
+    <app-footer-links />
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <section class="status-card">
+    <h2>Loading Brightside Goldens...</h2>
+  </section>
+</ng-template>

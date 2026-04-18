@@ -1,0 +1,61 @@
+<div class="page-layout-shell">
+  <section
+    class="page-section"
+    *ngIf="content.title || content.intro || content.announcement || content.highlights?.length"
+    [class.full-width-hero-layout]="activeDogs.length"
+  >
+    <div class="hero-panel" *ngIf="content.title || content.intro || content.announcement">
+      <h1 *ngIf="content.title">{{ content.title }}</h1>
+      <p class="intro" *ngIf="content.intro">{{ content.intro }}</p>
+
+      <div class="announcement" *ngIf="content.announcement">
+        <span>Current update</span>
+        <p>{{ content.announcement }}</p>
+      </div>
+    </div>
+
+    <div class="highlight-panel" *ngIf="content.highlights?.length">
+      <h2>At a glance</h2>
+      <div class="highlight-list">
+        <article *ngFor="let highlight of content.highlights">
+          <h3>{{ highlight.title }}</h3>
+          <p>{{ highlight.detail }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" *ngIf="content.images?.length">
+    <div class="section-heading">
+      <h2>Life at Brightside Goldens</h2>
+    </div>
+
+    <div class="gallery-grid">
+      <figure *ngFor="let image of content.images">
+        <img
+          [src]="image.url"
+          [alt]="image.alt"
+          loading="lazy"
+          (error)="useFallbackImage($event)"
+        />
+        <figcaption>{{ image.caption }}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="dog-grid-section" *ngIf="activeDogs.length">
+    <div class="section-heading">
+      <h2>Personalities we are proud of</h2>
+    </div>
+
+    <div class="dog-grid">
+      <app-dog-card
+        *ngFor="let dog of activeDogs"
+        [dog]="dog"
+        [ctaText]="dog.ctaText || ''"
+      />
+    </div>
+  </section>
+
+  <app-footer-links />
+</div>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Brightside Goldens placeholder image</title>
+  <desc id="desc">A decorative placeholder shown when a dog photo cannot be loaded.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f7e4b5"/>
+      <stop offset="100%" stop-color="#d9b56d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="600" cy="345" r="145" fill="#fff7e8" opacity="0.95"/>
+  <path d="M490 308c-41-65-124-62-143 2 48-8 83 22 97 70m266-72c41-65 124-62 143 2-48-8-83 22-97 70" fill="#fff7e8"/>
+  <path d="M600 460c-118 0-214 85-214 190v42h428v-42c0-105-96-190-214-190Z" fill="#fff7e8" opacity="0.95"/>
+  <text x="600" y="775" text-anchor="middle" font-family="Georgia, serif" font-size="58" fill="#5d4621">Brightside Goldens</text>
+  <text x="600" y="833" text-anchor="middle" font-family="Avenir Next, Arial, sans-serif" font-size="28" letter-spacing="4" fill="#7a6133">IMAGE COMING SOON</text>
+</svg>

@@ -1,58 +1,26 @@
-<main class="page-shell">
-  <section class="hero" *ngIf="data as siteData">
-    <div class="hero-copy">
-      <p class="eyebrow">Brightside Goldens</p>
-      <h1>{{ siteData.tagline }}</h1>
-      <p class="intro">{{ siteData.intro }}</p>
-
-      <div class="announcement">
-        <span>Current update</span>
-        <p>{{ siteData.announcement }}</p>
-      </div>
+<div class="site-shell">
+  <header class="site-header" [class.admin-header-layout]="isAdminRoute">
+    <div class="header-copy">
+      <a routerLink="/" class="brand-mark">
+        {{ isAdminRoute ? 'Brightside Goldend - Site Content editor' : ((siteContent$ | async)?.brand || 'Brightside Goldens') }}
+      </a>
     </div>
 
-    <div class="hero-card">
-      <h2>Why families love Brightside</h2>
-      <div class="highlight-list">
-        <article *ngFor="let highlight of siteData.highlights">
-          <h3>{{ highlight.title }}</h3>
-          <p>{{ highlight.detail }}</p>
-        </article>
-      </div>
-    </div>
-  </section>
+    <nav class="site-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/puppies" routerLinkActive="active">Puppies</a>
+      <a routerLink="/our-boys" routerLinkActive="active">Our Boys</a>
+      <a routerLink="/our-girls" routerLinkActive="active">Our Girls</a>
+      <a *ngIf="showAdminLink" routerLink="/brightside-studio" routerLinkActive="active">Admin</a>
+      <ng-container *ngIf="isAdminRoute">
+        <a routerLink="/about-us" routerLinkActive="active">About Us</a>
+        <a routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
+        <a routerLink="/faqs" routerLinkActive="active">FAQs</a>
+      </ng-container>
+    </nav>
+  </header>
 
-  <section class="status-card" *ngIf="loading">
-    <h2>Loading Brightside Goldens...</h2>
-  </section>
-
-  <section class="status-card error" *ngIf="error">
-    <h2>{{ error }}</h2>
-  </section>
-
-  <section class="contact-panel" *ngIf="data as siteData">
-    <div>
-      <p class="eyebrow">Contact</p>
-      <h2>Meet your next best friend</h2>
-      <p>
-        Reach out to learn about availability, home-raised puppy care, and what
-        to expect from the Brightside Goldens process.
-      </p>
-    </div>
-
-    <dl>
-      <div>
-        <dt>Email</dt>
-        <dd>{{ siteData.contact.email }}</dd>
-      </div>
-      <div>
-        <dt>Phone</dt>
-        <dd>{{ siteData.contact.phone }}</dd>
-      </div>
-      <div>
-        <dt>Location</dt>
-        <dd>{{ siteData.contact.location }}</dd>
-      </div>
-    </dl>
-  </section>
-</main>
+  <main class="site-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

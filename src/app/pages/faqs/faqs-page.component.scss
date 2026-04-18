@@ -1,0 +1,121 @@
+:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.faqs-page-shell {
+  flex: 1;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-list {
+  width: min(1120px, 100%);
+  margin: 0 auto 2rem;
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+app-footer-links {
+  display: block;
+  margin-top: auto;
+}
+
+.faq-item {
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 252, 246, 0.92);
+  box-shadow: 0 24px 60px rgba(94, 67, 20, 0.12);
+}
+
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 0;
+  padding: 1.35rem 1.6rem;
+  background: transparent;
+  color: #17343a;
+  font: inherit;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.faq-indicator {
+  position: relative;
+  flex: 0 0 1.1rem;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.faq-indicator::before,
+.faq-indicator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 2px;
+  border-radius: 999px;
+  background: #427884;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.faq-indicator::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-item.open .faq-indicator::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg) scaleX(0);
+}
+
+.faq-answer-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  align-items: start;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.faq-answer-wrap.open {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 1.6rem;
+}
+
+.faq-answer-inner {
+  padding-bottom: 1.5rem;
+}
+
+.faq-answer p {
+  margin: 0;
+  color: #17343a;
+  line-height: 1.7;
+}
+
+.faq-answer p + p {
+  margin-top: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .faq-trigger {
+    padding: 1.2rem 1.3rem;
+  }
+
+  .faq-answer {
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+  }
+}

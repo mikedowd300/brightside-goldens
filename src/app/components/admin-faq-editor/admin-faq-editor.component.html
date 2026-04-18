@@ -1,0 +1,52 @@
+<div class="array-card faq-card">
+  <button
+    type="button"
+    class="editor-toggle"
+    [attr.aria-expanded]="isExpanded"
+    [class.expanded]="isExpanded"
+    [attr.aria-controls]="panelId"
+    (click)="toggleExpanded()"
+  >
+    <h3>{{ title }}</h3>
+    <button
+      type="button"
+      class="danger editor-delete-button"
+      *ngIf="isExpanded"
+      (click)="onDeleteClick($event)"
+    >
+      Delete
+    </button>
+    <span class="editor-toggle-icon" aria-hidden="true">▾</span>
+  </button>
+
+  <div class="editor-panel" [class.expanded]="isExpanded" [attr.id]="panelId">
+    <div class="editor-panel-inner">
+      <label>
+        <span>Question</span>
+        <textarea rows="2" [(ngModel)]="faq.question" (ngModelChange)="changed.emit()"></textarea>
+      </label>
+
+      <section class="nested-panel">
+        <div class="group-header">
+          <h4>Answer Paragraphs</h4>
+          <button type="button" (click)="addParagraphRequested.emit()">Add Paragraph</button>
+        </div>
+
+        <div
+          class="string-row"
+          *ngFor="let paragraph of faq.answer; let answerIndex = index; trackBy: trackByIndex"
+          [id]="answerIdPrefix ? answerIdPrefix + '-' + answerIndex : null"
+        >
+          <textarea
+            rows="5"
+            [(ngModel)]="faq.answer[answerIndex]"
+            (ngModelChange)="changed.emit()"
+          ></textarea>
+          <button type="button" class="danger icon-button" (click)="removeParagraphRequested.emit(answerIndex)">
+            Delete
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

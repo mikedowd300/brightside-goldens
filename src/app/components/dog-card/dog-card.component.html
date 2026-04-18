@@ -1,0 +1,39 @@
+<article class="dog-card" [attr.id]="dog.anchorId || null">
+  <div class="dog-top">
+    <div class="dog-slideshow" *ngIf="images.length">
+      <img
+        *ngFor="let image of images; let imageIndex = index"
+        [src]="image.url"
+        [alt]="image.alt"
+        [class.active]="isActiveImage(imageIndex)"
+        loading="lazy"
+      />
+    </div>
+
+    <dl class="dog-details" *ngIf="dog.details?.length">
+      <div *ngFor="let detail of dog.details">
+        <ng-container *ngIf="parseDetail(detail) as parsed">
+          <dd [class.full-width]="!parsed.key">
+            <span class="detail-key" *ngIf="parsed.key">{{ parsed.key }}</span><span
+              class="detail-separator"
+              [class.hash-separator]="parsed.separator === '#'"
+              *ngIf="parsed.separator"
+            >{{ parsed.separator }}</span>
+            <span class="detail-value">{{ parsed.value }}</span>
+          </dd>
+        </ng-container>
+      </div>
+      <div *ngIf="ctaText" class="detail-cta-row">
+        <dd class="full-width">
+          <a class="dog-cta" routerLink="/contact-us">{{ ctaText }}</a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+
+  <div class="dog-copy">
+    <h3>{{ dog.name }}</h3>
+    <p class="dog-subtitle">{{ dog.subtitle }}</p>
+    <p>{{ dog.description }}</p>
+  </div>
+</article>

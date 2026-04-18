@@ -1,0 +1,410 @@
+<section class="admin-shell admin-gate-shell" *ngIf="!hasAdminAccess">
+  <div class="admin-header admin-gate-card">
+    <p class="admin-gate-title">Brightside Goldens Site Content Editor</p>
+    <p>
+      Enter the passphrase to continue to the site content editor.
+    </p>
+
+    <form class="admin-gate-form" (ngSubmit)="submitAdminPassphrase()">
+      <label for="admin-passphrase">
+        <span>Passphrase</span>
+        <input
+          id="admin-passphrase"
+          name="admin-passphrase"
+          type="password"
+          [(ngModel)]="adminPassphrase"
+          autocomplete="current-password"
+        />
+      </label>
+
+      <button type="submit" class="primary">Enter Studio</button>
+    </form>
+  </div>
+</section>
+
+<section class="admin-shell" *ngIf="hasAdminAccess && content as site; else adminLoading">
+  <div class="admin-header">
+    <p>
+      Use the page tabs to edit content, or switch to <strong>Raw JSON</strong> to paste a JSON object.
+    </p>
+
+    <div class="mode-toggle">
+      <button type="button" [class.active]="mode === 'form'" (click)="setMode('form')">
+        Structured Editor
+      </button>
+      <button type="button" [class.active]="mode === 'json'" (click)="setMode('json')">
+        Raw JSON
+      </button>
+    </div>
+  </div>
+
+  <div class="admin-card" [class.has-floating-savebar]="showFloatingSaveBar" *ngIf="mode === 'form'; else rawJsonMode">
+    <nav class="tab-row desktop-tab-row" aria-label="Admin sections">
+      <button
+        type="button"
+        *ngFor="let tab of allTabs"
+        [class.active]="isTabActive(tab.id)"
+        (click)="setActiveTab(tab.id)"
+      >
+        {{ tab.label }}
+      </button>
+    </nav>
+
+    <div class="tab-stack mobile-tab-stack">
+      <nav class="tab-row" aria-label="Primary admin sections">
+        <button
+          type="button"
+          *ngFor="let tab of primaryTabs"
+          [class.active]="isTabActive(tab.id)"
+          (click)="setActiveTab(tab.id)"
+        >
+          {{ tab.label }}
+        </button>
+      </nav>
+
+      <nav class="tab-row secondary-row" aria-label="Secondary admin sections">
+        <button
+          type="button"
+          *ngFor="let tab of secondaryTabs"
+          [class.active]="isTabActive(tab.id)"
+          (click)="setActiveTab(tab.id)"
+        >
+          {{ tab.label }}
+        </button>
+      </nav>
+    </div>
+
+    <div class="editor-panel floating-save-editor-panel" [class.has-floating-savebar]="showFloatingSaveBar" *ngIf="activeTab === 'home'">
+      <div class="sticky-save-bar" *ngIf="showFloatingSaveBar">
+        <p
+          class="sticky-save-status"
+          [class.is-dirty]="floatingSaveTone === 'dirty'"
+          [class.is-saved]="floatingSaveTone === 'saved'"
+          [class.is-error]="floatingSaveTone === 'error'"
+          [class.is-saving]="floatingSaveTone === 'saving'"
+        >
+          {{ floatingSaveText }}
+        </p>
+
+        <button type="button" class="primary sticky-save-button" [disabled]="isSaving" (click)="save()">
+          {{ isSaving ? 'Saving...' : 'Save Changes' }}
+        </button>
+      </div>
+
+      <section class="field-group">
+        <h2>Site Basics</h2>
+        <label>
+          <span>Site Title</span>
+          <input type="text" [(ngModel)]="site.brand" (ngModelChange)="onStructuredChange()" />
+        </label>
+      </section>
+
+      <section class="field-group">
+        <div class="group-header">
+          <h2>Home Slideshow</h2>
+          <button type="button" (click)="addImage(site.home.slideshowImages, 'home-slide')">Add Slide</button>
+        </div>
+
+        <app-admin-slide-editor
+          *ngFor="let image of site.home.slideshowImages; let i = index; trackBy: trackByIndex"
+          [id]="'home-slide-' + i"
+          [slide]="image"
+          [index]="i"
+          [expanded]="isNewSlideExpanded(i)"
+          [canDelete]="site.home.slideshowImages.length > 1"
+          (changed)="onStructuredChange()"
+          (deleteRequested)="removeArrayItem(site.home.slideshowImages, i)"
+        />
+      </section>
+
+      <section class="field-group">
+        <div class="group-header">
+          <h2>Home Highlights</h2>
+          <button type="button" (click)="addHomeHighlight(site.home.highlights, 'home-highlight')">Add Highlight</button>
+        </div>
+
+        <div class="home-highlight-list">
+          <div class="array-card home-highlight-card" *ngFor="let highlight of site.home.highlights; let i = index; trackBy: trackByIndex" [id]="'home-highlight-' + i">
+            <input type="text" [(ngModel)]="site.home.highlights[i]" (ngModelChange)="onStructuredChange()" />
+            <button type="button" class="danger home-highlight-delete" (click)="removeArrayItem(site.home.highlights, i)">
+              Delete
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div
+      class="editor-panel floating-save-editor-panel"
+      [class.has-floating-savebar]="showFloatingSaveBar"
+      *ngIf="activeTab === 'puppies'"
+    >
+      <div class="sticky-save-bar" *ngIf="showFloatingSaveBar">
+        <p
+          class="sticky-save-status"
+          [class.is-dirty]="floatingSaveTone === 'dirty'"
+          [class.is-saved]="floatingSaveTone === 'saved'"
+          [class.is-error]="floatingSaveTone === 'error'"
+          [class.is-saving]="floatingSaveTone === 'saving'"
+        >
+          {{ floatingSaveText }}
+        </p>
+
+        <button type="button" class="primary sticky-save-button" [disabled]="isSaving" (click)="save()">
+          {{ isSaving ? 'Saving...' : 'Save Changes' }}
+        </button>
+      </div>
+
+      <section class="field-group">
+        <h2>Puppies Page Intro</h2>
+        <label>
+          <span>Title</span>
+          <input type="text" [(ngModel)]="site.puppies.title" (ngModelChange)="onStructuredChange()" />
+        </label>
+        <label>
+          <span>Intro</span>
+          <textarea rows="4" [(ngModel)]="site.puppies.intro" (ngModelChange)="onStructuredChange()"></textarea>
+        </label>
+      </section>
+
+      <section class="field-group">
+        <div class="group-header">
+          <h2>Litters</h2>
+          <button type="button" (click)="addLitter(site.puppies.litters, 'puppies-litter')">Add Litter</button>
+        </div>
+
+        <ng-container *ngFor="let litter of site.puppies.litters; let i = index; trackBy: trackByIndex">
+          <app-admin-litter-editor
+            [id]="'puppies-litter-' + i"
+            [litter]="litter"
+            [index]="i"
+            [title]="getLitterEditorTitle(litter, i)"
+            [sireOptions]="ensureDogs(site.ourBoys)"
+            [motherOptions]="ensureDogs(site.ourGirls)"
+            [expanded]="isNewLitterExpanded(i)"
+            [puppyImageIdPrefix]="'litter-puppy-' + i"
+            (changed)="onStructuredChange()"
+            (deleteRequested)="removeArrayItem(site.puppies.litters, i)"
+            (addPuppyRequested)="addPuppyImages(litter, 'litter-puppy-' + i)"
+            (clearPuppyRequested)="clearOptionalImages(litter, 'puppyImages')"
+            (removePuppyRequested)="removeArrayItem(litter.puppyImages!, $event)"
+          />
+        </ng-container>
+      </section>
+    </div>
+
+    <div class="editor-panel floating-save-editor-panel" [class.has-floating-savebar]="showFloatingSaveBar" *ngIf="activeTab === 'ourBoys' || activeTab === 'ourGirls'">
+      <div class="sticky-save-bar" *ngIf="showFloatingSaveBar">
+        <p
+          class="sticky-save-status"
+          [class.is-dirty]="floatingSaveTone === 'dirty'"
+          [class.is-saved]="floatingSaveTone === 'saved'"
+          [class.is-error]="floatingSaveTone === 'error'"
+          [class.is-saving]="floatingSaveTone === 'saving'"
+        >
+          {{ floatingSaveText }}
+        </p>
+
+        <button type="button" class="primary sticky-save-button" [disabled]="isSaving" (click)="save()">
+          {{ isSaving ? 'Saving...' : 'Save Changes' }}
+        </button>
+      </div>
+
+      <section class="field-group">
+        <h2>{{ activeTab === 'ourBoys' ? 'Our Boys' : 'Our Girls' }} Intro</h2>
+        <label>
+          <span>Title</span>
+          <input
+            type="text"
+            [(ngModel)]="selectedDogPage.title"
+            (ngModelChange)="onStructuredChange()"
+          />
+        </label>
+        <label>
+          <span>Intro</span>
+          <textarea
+            rows="4"
+            [(ngModel)]="selectedDogPage.intro"
+            (ngModelChange)="onStructuredChange()"
+          ></textarea>
+        </label>
+      </section>
+
+      <section class="field-group">
+        <div class="group-header">
+          <h2>Dogs</h2>
+          <button type="button" (click)="addDog(ensureDogs(selectedDogPage), 'dog-card')">
+            Add Dog
+          </button>
+        </div>
+
+        <app-admin-dog-editor
+          *ngFor="let dog of ensureDogs(selectedDogPage); let i = index; trackBy: trackByIndex"
+          [id]="'dog-card-' + i"
+          [dog]="dog"
+          [index]="i"
+          [expanded]="isNewDogExpanded(i)"
+          [warning]="getDogDeleteWarning(i)"
+          [validationError]="getDogValidationError(i)"
+          [detailIdPrefix]="'dog-detail-' + i"
+          [imageIdPrefix]="'dog-image-' + i"
+          [expandedImageIndex]="getExpandedNewDogImageIndex(i)"
+          (changed)="onStructuredChange()"
+          (nameUpdated)="updateAnchorIdFromDogName(dog)"
+          (deleteRequested)="attemptRemoveDog(i)"
+          (addImageRequested)="addDogImage(dog, i, 'dog-image-' + i)"
+          (removeImageRequested)="removeArrayItem(dog.images, $event)"
+          (addDetailRequested)="addDetail(ensureDetails(dog), 'dog-detail-' + i)"
+          (removeDetailRequested)="removeArrayItem(ensureDetails(dog), $event)"
+        />
+      </section>
+    </div>
+
+    <div class="editor-panel floating-save-editor-panel" [class.has-floating-savebar]="showFloatingSaveBar" *ngIf="activeTab === 'aboutUs'">
+      <div class="sticky-save-bar" *ngIf="showFloatingSaveBar">
+        <p
+          class="sticky-save-status"
+          [class.is-dirty]="floatingSaveTone === 'dirty'"
+          [class.is-saved]="floatingSaveTone === 'saved'"
+          [class.is-error]="floatingSaveTone === 'error'"
+          [class.is-saving]="floatingSaveTone === 'saving'"
+        >
+          {{ floatingSaveText }}
+        </p>
+
+        <button type="button" class="primary sticky-save-button" [disabled]="isSaving" (click)="save()">
+          {{ isSaving ? 'Saving...' : 'Save Changes' }}
+        </button>
+      </div>
+
+      <section class="field-group">
+        <div class="group-header">
+          <h2>About Us Paragraphs</h2>
+          <button type="button" (click)="addParagraph(site.aboutUs.paragraphs ?? (site.aboutUs.paragraphs = []), 'about-paragraph')">
+            Add Paragraph
+          </button>
+        </div>
+
+        <div class="string-row" *ngFor="let paragraph of site.aboutUs.paragraphs ?? []; let i = index; trackBy: trackByIndex" [id]="'about-paragraph-' + i">
+          <textarea
+            rows="5"
+            [(ngModel)]="site.aboutUs.paragraphs![i]"
+            (ngModelChange)="onStructuredChange()"
+          ></textarea>
+          <button type="button" class="danger icon-button" (click)="removeArrayItem(site.aboutUs.paragraphs!, i)">
+            Delete
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <div class="editor-panel" *ngIf="activeTab === 'contactUs'">
+      <section class="field-group">
+        <h2>Contact Us Intro</h2>
+        <label>
+          <span>Title</span>
+          <input type="text" [(ngModel)]="site.contactUs.title" (ngModelChange)="onStructuredChange()" />
+        </label>
+        <label>
+          <span>Intro</span>
+          <textarea rows="4" [(ngModel)]="site.contactUs.intro" (ngModelChange)="onStructuredChange()"></textarea>
+        </label>
+      </section>
+    </div>
+
+    <div class="editor-panel" *ngIf="activeTab === 'faqs'">
+      <section class="field-group">
+        <div class="group-header">
+          <h2>FAQ Items</h2>
+          <button type="button" (click)="addFaq(site.faqs.items, 'faq-item')">Add FAQ</button>
+        </div>
+
+        <app-admin-faq-editor
+          *ngFor="let faq of site.faqs.items; let i = index; trackBy: trackByIndex"
+          [id]="'faq-item-' + i"
+          [faq]="faq"
+          [index]="i"
+          [expanded]="isNewFaqExpanded(i)"
+          [answerIdPrefix]="'faq-answer-' + i"
+          (changed)="onStructuredChange()"
+          (deleteRequested)="removeArrayItem(site.faqs.items, i)"
+          (addParagraphRequested)="addParagraph(faq.answer, 'faq-answer-' + i)"
+          (removeParagraphRequested)="removeArrayItem(faq.answer, $event)"
+        />
+      </section>
+    </div>
+  </div>
+
+  <ng-template #rawJsonMode>
+    <div class="admin-card">
+      <p class="raw-json-warning">
+        Warning: an improperly constructed JSON object can break parts of the site or keep pages from loading correctly.
+      </p>
+      <label for="content-json">Site JSON</label>
+      <textarea
+        id="content-json"
+        [(ngModel)]="jsonText"
+        spellcheck="false"
+        rows="34"
+      ></textarea>
+    </div>
+  </ng-template>
+
+  <p class="message success save-message" *ngIf="message && !showFloatingSaveBar">{{ message }}</p>
+  <p class="message error save-message" *ngIf="error && !showFloatingSaveBar">{{ error }}</p>
+  <div class="json-error-frame" *ngIf="mode === 'json' && jsonErrorFrame.length">
+    <div
+      class="json-error-line"
+      *ngFor="let line of jsonErrorFrame"
+      [class.is-problem-line]="line.isProblemLine"
+    >
+      <span class="json-error-line-number">{{ line.lineNumber }}</span>
+      <code class="json-error-line-text">{{ line.text || ' ' }}</code>
+    </div>
+    <div class="json-error-caret-row" *ngIf="jsonErrorColumn !== null">
+      <span class="json-error-line-number"></span>
+      <div class="json-error-caret-track">
+        <span class="json-error-caret" [style.marginLeft.ch]="jsonErrorColumn! - 1">^</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="json-actions" *ngIf="mode === 'json'">
+    <button
+      type="button"
+      class="save-button"
+      *ngIf="error"
+      [disabled]="isSaving"
+      (click)="undoJsonChanges()"
+    >
+      Undo
+    </button>
+
+    <button
+      type="button"
+      class="primary save-button"
+      [disabled]="isSaving"
+      (click)="save()"
+    >
+      {{ isSaving ? 'Saving...' : 'Save Changes' }}
+    </button>
+  </div>
+
+  <button
+    type="button"
+    class="primary save-button"
+    *ngIf="mode !== 'json' && !usesFloatingSaveBar(activeTab)"
+    [disabled]="isSaving"
+    (click)="save()"
+  >
+    {{ isSaving ? 'Saving...' : 'Save Changes' }}
+  </button>
+</section>
+
+<ng-template #adminLoading>
+  <section class="admin-shell" *ngIf="hasAdminAccess">
+    <div class="admin-header">
+      <p>Loading site content editor...</p>
+    </div>
+  </section>
+</ng-template>

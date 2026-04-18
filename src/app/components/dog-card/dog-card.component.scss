@@ -1,0 +1,142 @@
+:host {
+  display: block;
+}
+
+.dog-card {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(255, 252, 246, 0.92);
+  box-shadow: 0 24px 60px rgba(94, 67, 20, 0.12);
+}
+
+.dog-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1rem 1rem 0;
+  align-items: stretch;
+}
+
+.dog-slideshow {
+  display: block;
+  align-self: stretch;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #e8f3f5;
+}
+
+.dog-slideshow img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.dog-slideshow img.active {
+  opacity: 1;
+}
+
+.dog-copy {
+  padding: 1rem 1rem 1.15rem;
+  border-top: 1px solid rgba(66, 120, 132, 0.18);
+}
+
+h3 {
+  margin: 0;
+  color: #1d4750;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.dog-subtitle {
+  margin: 0.45rem 0 0;
+  font-weight: 700;
+  color: #2d6772;
+}
+
+.dog-copy p {
+  margin: 0.45rem 0 0;
+  line-height: 1.6;
+}
+
+.dog-cta {
+  display: inline-flex;
+  margin-top: 0.9rem;
+  color: #427884;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.11em;
+  transition: color 140ms ease, opacity 140ms ease;
+}
+
+.dog-cta:hover,
+.dog-cta:focus-visible {
+  color: #2d6772;
+}
+
+.dog-cta:focus-visible {
+  outline: 2px solid rgba(66, 120, 132, 0.35);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.dog-details {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  align-content: start;
+}
+
+.dog-details div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+dd {
+  margin: 0;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.full-width {
+  font-weight: 700;
+}
+
+.detail-key {
+  color: #2d6772;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.detail-separator {
+  margin-right: 0.3rem;
+}
+
+.hash-separator {
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .dog-top {
+    grid-template-columns: 1fr;
+  }
+
+  .dog-slideshow {
+    aspect-ratio: 4 / 3;
+  }
+}

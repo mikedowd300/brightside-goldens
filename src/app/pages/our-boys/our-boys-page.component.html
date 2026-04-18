@@ -1,0 +1,4 @@
+<app-page-layout
+  *ngIf="vm$ | async as site"
+  [content]="site.ourBoys"
+/>

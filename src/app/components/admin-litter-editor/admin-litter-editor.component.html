@@ -1,0 +1,143 @@
+<div class="array-card litter-card">
+  <button
+    type="button"
+    class="editor-toggle"
+    [attr.aria-expanded]="isExpanded"
+    [class.expanded]="isExpanded"
+    [attr.aria-controls]="panelId"
+    (click)="toggleExpanded()"
+  >
+    <h3>{{ title }}</h3>
+    <button
+      type="button"
+      class="danger editor-delete-button"
+      *ngIf="isExpanded"
+      (click)="onDeleteClick($event)"
+    >
+      Delete
+    </button>
+    <span class="editor-toggle-icon" aria-hidden="true">▾</span>
+  </button>
+
+  <div class="editor-panel" [class.expanded]="isExpanded" [attr.id]="panelId">
+    <div class="editor-panel-inner">
+      <label>
+        <span>Status</span>
+        <select [(ngModel)]="litter.status" (ngModelChange)="onFieldChange()">
+          <option value="PLANNED">PLANNED</option>
+          <option value="ON_THE_WAY">ON_THE_WAY</option>
+          <option value="ARRIVED">ARRIVED</option>
+          <option value="HOMED">HOMED</option>
+        </select>
+      </label>
+      <label>
+        <span>Title</span>
+        <input type="text" [(ngModel)]="litter.title" (ngModelChange)="onFieldChange()" />
+      </label>
+      <label>
+        <span>Timeframe Text</span>
+        <textarea rows="3" [(ngModel)]="litter.timeframeText" (ngModelChange)="onFieldChange()"></textarea>
+      </label>
+      <label>
+        <span>Ready To Go Home Text</span>
+        <textarea rows="3" [(ngModel)]="litter.readyToGoHomeText" (ngModelChange)="onFieldChange()"></textarea>
+      </label>
+
+      <div class="split-grid">
+        <section class="nested-panel">
+          <h4>Sire</h4>
+          <label>
+            <span>Name</span>
+            <select
+              [ngModel]="litter.sire.dogAnchorId"
+              (ngModelChange)="onParentDogChange('sire', $event)"
+            >
+              <option value="">Select sire</option>
+              <option *ngFor="let dog of sireOptions; trackBy: trackByIndex" [ngValue]="dog.anchorId">
+                {{ dog.name }}
+              </option>
+            </select>
+          </label>
+          <label *ngIf="selectedSire">
+            <span>Image</span>
+            <select
+              [ngModel]="litter.sire.image"
+              (ngModelChange)="onParentImageChange('sire', $event)"
+            >
+              <option value="">Select image</option>
+              <option *ngFor="let image of getParentImageOptions('sire'); let imageIndex = index; trackBy: trackByIndex" [ngValue]="image.url">
+                {{ image.alt || ('Image ' + (imageIndex + 1)) }}
+              </option>
+            </select>
+          </label>
+        </section>
+
+        <section class="nested-panel">
+          <h4>Mother</h4>
+          <label>
+            <span>Name</span>
+            <select
+              [ngModel]="litter.mother.dogAnchorId"
+              (ngModelChange)="onParentDogChange('mother', $event)"
+            >
+              <option value="">Select mother</option>
+              <option *ngFor="let dog of motherOptions; trackBy: trackByIndex" [ngValue]="dog.anchorId">
+                {{ dog.name }}
+              </option>
+            </select>
+          </label>
+          <label *ngIf="selectedMother">
+            <span>Image</span>
+            <select
+              [ngModel]="litter.mother.image"
+              (ngModelChange)="onParentImageChange('mother', $event)"
+            >
+              <option value="">Select image</option>
+              <option *ngFor="let image of getParentImageOptions('mother'); let imageIndex = index; trackBy: trackByIndex" [ngValue]="image.url">
+                {{ image.alt || ('Image ' + (imageIndex + 1)) }}
+              </option>
+            </select>
+          </label>
+        </section>
+      </div>
+
+      <section class="nested-panel">
+        <div class="group-header">
+          <h4>{{ puppySectionTitle }}</h4>
+          <div class="group-actions">
+            <button type="button" (click)="addPuppyRequested.emit()">Add Image</button>
+            <button type="button" *ngIf="puppyImages.length" (click)="clearPuppyRequested.emit()">
+              Clear All
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="array-card compact"
+          *ngFor="let image of puppyImages; let imageIndex = index; trackBy: trackByIndex"
+          [id]="puppyImageIdPrefix ? puppyImageIdPrefix + '-' + imageIndex : null"
+        >
+          <div class="array-card-header">
+            <h5>{{ imageItemLabel }} {{ imageIndex + 1 }}</h5>
+            <button type="button" class="danger" (click)="removePuppyRequested.emit(imageIndex)">
+              Delete
+            </button>
+          </div>
+          <app-admin-image-field
+            label="Image URL"
+            [(value)]="image.url"
+            (changed)="onFieldChange()"
+          />
+          <label>
+            <span>Alt Text</span>
+            <input type="text" [(ngModel)]="image.alt" (ngModelChange)="onFieldChange()" />
+          </label>
+          <label>
+            <span>Caption</span>
+            <input type="text" [(ngModel)]="image.caption" (ngModelChange)="onFieldChange()" />
+          </label>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

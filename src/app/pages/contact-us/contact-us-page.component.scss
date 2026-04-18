@@ -1,0 +1,165 @@
+:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-page-shell {
+  flex: 1;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-card {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2rem;
+  padding: 2.5rem 2.75rem;
+  border-radius: 16px;
+  background: rgba(255, 252, 246, 0.9);
+  box-shadow: 0 24px 60px rgba(94, 67, 20, 0.12);
+}
+
+h1 {
+  margin: 0;
+  color: #1d4750;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+}
+
+.intro {
+  margin: 1rem 0 0;
+  color: #17343a;
+  line-height: 1.7;
+}
+
+.intro-secondary {
+  margin-top: 0.8rem;
+}
+
+.contact-details {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 1.2rem;
+}
+
+.contact-details p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(23, 52, 58, 0.7);
+}
+
+.contact-form > div {
+  display: grid;
+  gap: 0.45rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(66, 120, 132, 0.35);
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.96);
+  color: #17343a;
+  cursor: pointer;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+small {
+  color: #a03c3c;
+  font-weight: 700;
+}
+
+.helper-text {
+  margin-top: -0.25rem;
+}
+
+.form-actions {
+  display: flex !important;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.form-actions button {
+  width: auto;
+  flex: 0 0 auto;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.85rem 1.3rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.secondary {
+  background: #d7ebef;
+  color: #1d4750;
+}
+
+.primary {
+  background: #427884;
+  color: #fffdf8;
+}
+
+.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.message {
+  margin: 0;
+  font-weight: 700;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 700;
+}
+
+.status-indicator svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+}
+
+.success {
+  color: #2c6534;
+}
+
+.error {
+  color: #a03c3c;
+}
+
+@media (max-width: 900px) {
+  .contact-card {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+}

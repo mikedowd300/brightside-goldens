@@ -1,0 +1,25 @@
+<label class="image-field">
+  <span>{{ label }}</span>
+  <div class="image-field-row">
+    <input
+      type="text"
+      readonly
+      [ngModel]="value"
+      [class.invalid-field]="invalid"
+      [attr.aria-haspopup]="'dialog'"
+      [attr.aria-expanded]="isPickerOpen"
+      placeholder="Choose a Cloudinary image"
+      (click)="onFieldClick()"
+      (keydown)="onFieldKeydown($event)"
+    />
+    <button type="button" class="picker-button" (click)="openPicker()">
+      Browse
+    </button>
+  </div>
+</label>
+
+<app-cloudinary-file-selector
+  *ngIf="isPickerOpen"
+  (selected)="onSelect($event)"
+  (closed)="closePicker()"
+/>

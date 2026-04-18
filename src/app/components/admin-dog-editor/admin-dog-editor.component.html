@@ -1,0 +1,139 @@
+<div class="array-card">
+  <button
+    type="button"
+    class="editor-toggle"
+    [attr.aria-expanded]="isExpanded"
+    [class.expanded]="isExpanded"
+    [attr.aria-controls]="panelId"
+    (click)="toggleExpanded()"
+  >
+    <h3>{{ dog.name || ('Dog ' + (index + 1)) }}</h3>
+    <button
+      type="button"
+      class="danger editor-delete-button"
+      *ngIf="isExpanded"
+      (click)="onDeleteClick($event)"
+    >
+      Delete
+    </button>
+    <span class="editor-toggle-icon" aria-hidden="true">▾</span>
+  </button>
+
+  <div class="editor-panel" [class.expanded]="isExpanded" [attr.id]="panelId">
+    <div class="editor-panel-inner">
+      <p class="inline-warning" *ngIf="warning">
+        {{ warning }}
+      </p>
+
+      <p class="inline-error" *ngIf="validationError">
+        {{ validationError }}
+      </p>
+
+      <label class="checkbox-row">
+        <input
+          type="checkbox"
+          [ngModel]="dog.active"
+          [disabled]="!canBeActive"
+          (ngModelChange)="onActiveChange($event)"
+        />
+        <span>Active</span>
+      </label>
+      <label>
+        <span>Name</span>
+        <input
+          type="text"
+          [(ngModel)]="dog.name"
+          [class.invalid-field]="!!validationError && !dog.name?.trim()"
+          (ngModelChange)="onNameChange()"
+        />
+      </label>
+      <label>
+        <span>Subtitle</span>
+        <input type="text" [(ngModel)]="dog.subtitle" (ngModelChange)="changed.emit()" />
+      </label>
+      <label>
+        <span>Description</span>
+        <textarea rows="4" [(ngModel)]="dog.description" (ngModelChange)="changed.emit()"></textarea>
+      </label>
+      <label>
+        <span>Dog CTA Text</span>
+        <input type="text" [(ngModel)]="dog.ctaText" (ngModelChange)="changed.emit()" />
+      </label>
+
+      <section class="nested-panel">
+        <div class="group-header">
+          <h4>Images</h4>
+          <button type="button" (click)="addImageRequested.emit()">Add Image</button>
+        </div>
+
+        <div
+          class="array-card compact"
+          *ngFor="let image of images; let imageIndex = index; trackBy: trackByIndex"
+          [id]="imageIdPrefix ? imageIdPrefix + '-' + imageIndex : null"
+        >
+          <button
+            type="button"
+            class="nested-editor-toggle"
+            [attr.aria-expanded]="isImageExpanded(imageIndex)"
+            [class.expanded]="isImageExpanded(imageIndex)"
+            [attr.aria-controls]="getImagePanelId(imageIndex)"
+            (click)="toggleImageExpanded(imageIndex)"
+          >
+            <h5>{{ getImageTitle(image, imageIndex) }}</h5>
+            <button
+              type="button"
+              class="danger nested-editor-delete-button"
+              *ngIf="isImageExpanded(imageIndex)"
+              (click)="onDeleteImageClick($event, imageIndex)"
+            >
+              Delete
+            </button>
+            <span class="nested-editor-toggle-icon" aria-hidden="true">▾</span>
+          </button>
+
+          <div
+            class="nested-editor-panel"
+            [class.expanded]="isImageExpanded(imageIndex)"
+            [attr.id]="getImagePanelId(imageIndex)"
+          >
+            <div class="nested-editor-panel-inner">
+              <app-admin-image-field
+                label="Image URL"
+                [(value)]="image.url"
+                [invalid]="!!validationError && !image.url?.trim() && imageIndex === 0"
+                (changed)="onImageChange()"
+              />
+
+              <label>
+                <span>Image Alt Text</span>
+                <input type="text" [(ngModel)]="image.alt" (ngModelChange)="onImageChange()" />
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="nested-panel">
+        <div class="group-header">
+          <h4>Details</h4>
+          <button type="button" (click)="addDetailRequested.emit()">Add Detail</button>
+        </div>
+
+        <div
+          class="string-row"
+          *ngFor="let detail of details; let detailIndex = index; trackBy: trackByIndex"
+          [id]="detailIdPrefix ? detailIdPrefix + '-' + detailIndex : null"
+        >
+          <textarea
+            rows="2"
+            [(ngModel)]="details[detailIndex]"
+            (ngModelChange)="changed.emit()"
+          ></textarea>
+          <button type="button" class="danger icon-button" (click)="removeDetailRequested.emit(detailIndex)">
+            Delete
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

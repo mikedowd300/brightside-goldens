@@ -1,0 +1,40 @@
+<div class="array-card slide-card">
+  <button
+    type="button"
+    class="editor-toggle"
+    [attr.aria-expanded]="isExpanded"
+    [class.expanded]="isExpanded"
+    [attr.aria-controls]="panelId"
+    (click)="toggleExpanded()"
+  >
+    <h3>{{ title }}</h3>
+    <button
+      type="button"
+      class="danger editor-delete-button"
+      *ngIf="isExpanded"
+      [disabled]="!canDelete"
+      (click)="onDeleteClick($event)"
+    >
+      Delete
+    </button>
+    <span class="editor-toggle-icon" aria-hidden="true">▾</span>
+  </button>
+
+  <div class="editor-panel" [class.expanded]="isExpanded" [attr.id]="panelId">
+    <div class="editor-panel-inner">
+      <app-admin-image-field
+        label="Image URL"
+        [(value)]="slide.url"
+        (changed)="changed.emit()"
+      />
+      <label>
+        <span>Alt Text</span>
+        <input type="text" [(ngModel)]="slide.alt" (ngModelChange)="changed.emit()" />
+      </label>
+      <label>
+        <span>Caption</span>
+        <textarea rows="3" [(ngModel)]="slide.caption" (ngModelChange)="changed.emit()"></textarea>
+      </label>
+    </div>
+  </div>
+</div>

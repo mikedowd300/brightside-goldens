@@ -1,0 +1,19 @@
+<ng-container *ngIf="puppiesContent$ | async as puppies">
+  <div class="puppies-page-shell">
+    <section class="page-intro" *ngIf="puppies.title || puppies.intro">
+      <h1 *ngIf="puppies.title">{{ puppies.title }}</h1>
+      <p class="intro" *ngIf="puppies.intro">{{ puppies.intro }}</p>
+    </section>
+
+    <section class="litters-stack">
+      <app-litter-showcase
+        *ngFor="let item of puppies.litters"
+        [litter]="item.litter"
+        [sireDog]="item.sireDog"
+        [motherDog]="item.motherDog"
+      />
+    </section>
+
+    <app-footer-links />
+  </div>
+</ng-container>

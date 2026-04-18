@@ -1,149 +1,138 @@
 :host {
   display: block;
   min-height: 100vh;
-  color: #1f2a18;
+  color: #17343a;
 }
 
-.page-shell {
+.site-shell {
   min-height: 100vh;
-  padding: 3rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.5rem 0;
   background:
-    radial-gradient(circle at top left, rgba(255, 215, 140, 0.85), transparent 30%),
-    linear-gradient(160deg, #fff8ec 0%, #f8efd9 45%, #efe0c0 100%);
+    radial-gradient(circle at top left, rgba(66, 120, 132, 0.28), transparent 30%),
+    linear-gradient(160deg, #f3fbfc 0%, #dbecef 48%, #c1dce0 100%);
 }
 
-.hero,
-.contact-panel {
+.site-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-content > * {
+  min-height: 100%;
+}
+
+.site-header {
   width: min(1120px, 100%);
-  margin: 0 auto;
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 2rem;
-  align-items: stretch;
-}
-
-.hero-copy,
-.hero-card,
-.contact-panel,
-.status-card {
-  border-radius: 28px;
-  box-shadow: 0 24px 60px rgba(94, 67, 20, 0.12);
-}
-
-.hero-copy {
-  padding: 3rem;
-  background: rgba(255, 252, 246, 0.88);
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(255, 252, 246, 0.78);
   backdrop-filter: blur(10px);
+  box-shadow: 0 16px 40px rgba(94, 67, 20, 0.12);
 }
 
-.hero-card {
-  padding: 2.5rem;
-  background: #8da663;
-  color: #fdf8ef;
+.header-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
-.eyebrow {
-  margin: 0 0 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 0.76rem;
-  font-weight: 700;
-}
-
-h1,
-h2,
-h3 {
-  margin: 0;
+.brand-mark {
+  color: #1d4750;
+  text-decoration: none;
   font-family: Georgia, "Times New Roman", serif;
-}
-
-h1 {
-  font-size: clamp(2.8rem, 6vw, 5.4rem);
-  line-height: 0.95;
-  max-width: 10ch;
-}
-
-.intro {
-  max-width: 34rem;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin: 1.5rem 0 0;
-}
-
-.announcement {
-  margin-top: 2rem;
-  padding: 1.25rem 1.5rem;
-  border-radius: 20px;
-  background: #f1dfb6;
-}
-
-.announcement span,
-dt {
+  font-size: 2rem;
   font-weight: 700;
 }
 
-.highlight-list {
-  display: grid;
-  gap: 1rem;
-  margin-top: 1.5rem;
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
-.highlight-list article {
-  padding: 1rem 1.1rem;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.12);
+.site-nav a {
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  color: #2d5f69;
+  text-decoration: none;
+  font-weight: 700;
 }
 
-.highlight-list p,
-dd,
-.announcement p,
-.contact-panel p {
-  margin: 0.45rem 0 0;
-  line-height: 1.6;
+.site-nav a.active {
+  background: #427884;
+  color: #fffdf8;
 }
 
-.contact-panel {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2rem;
-  margin-top: 2rem;
-  padding: 2.4rem 2.6rem;
-  background: #fffdf8;
+.site-header.admin-header-layout {
+  border-radius: 16px;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
-dl {
-  display: grid;
-  gap: 1rem;
-  margin: 0;
-}
-
-dd {
-  margin-left: 0;
-}
-
-.status-card {
-  width: min(1120px, 100%);
-  margin: 2rem auto 0;
-  padding: 2rem;
-  background: rgba(255, 252, 246, 0.88);
-}
-
-.error {
-  color: #872e2e;
+.site-header.admin-header-layout .site-nav {
+  width: 100%;
+  justify-content: flex-start;
 }
 
 @media (max-width: 900px) {
-  .hero,
-  .contact-panel {
-    grid-template-columns: 1fr;
+  .site-header {
+    border-radius: 16px;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
-  .hero-copy,
-  .hero-card,
-  .contact-panel {
-    padding: 2rem;
+  .site-nav {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 500px) {
+  .site-nav a {
+    padding: 0.3rem 0.7rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .site-shell {
+    padding: 16px 16px 0;
+  }
+
+  .site-header {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .header-copy {
+    width: 100%;
+    text-align: center;
+  }
+
+  .brand-mark {
+    font-size: 1.375rem;
+  }
+
+  .site-nav a {
+    padding: 0.3rem 0.45rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .site-nav a:nth-child(3),
+  .site-nav a:nth-child(4) {
+    max-width: 3.9rem;
+    white-space: normal;
+    line-height: 1.1;
+    text-align: center;
+    align-items: center;
   }
 }

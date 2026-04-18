@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@1');
+
 html,
 body {
   margin: 0;
@@ -7,4 +9,29 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+a,
+button,
+[role='button'],
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+summary {
+  cursor: pointer;
+}
+
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+button:active,
+input[type='button']:active,
+input[type='submit']:active,
+input[type='reset']:active {
+  transform: translateY(1px) scale(0.98);
+  filter: brightness(0.96);
 }

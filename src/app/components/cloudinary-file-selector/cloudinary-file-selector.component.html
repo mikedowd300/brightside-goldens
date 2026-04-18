@@ -1,0 +1,32 @@
+<div class="file-selector-overlay" (click)="closed.emit()">
+  <div class="file-selector-modal" (click)="$event.stopPropagation()">
+    <div class="file-selector-header">
+      <div>
+        <h3>Cloudinary Files</h3>
+        <p>{{ sourceText }}</p>
+      </div>
+      <button type="button" class="close-button" (click)="closed.emit()">Close</button>
+    </div>
+
+    <div class="file-selector-loading" *ngIf="isLoading" aria-live="polite" aria-busy="true">
+      <span class="file-selector-spinner" aria-hidden="true"></span>
+      <p class="file-selector-state">Loading files...</p>
+    </div>
+
+    <p class="file-selector-state is-error" *ngIf="!isLoading && error">
+      {{ error }}
+    </p>
+
+    <div class="asset-grid" *ngIf="!isLoading && !error">
+      <button
+        type="button"
+        class="asset-card"
+        *ngFor="let asset of assets"
+        (click)="selected.emit(asset.url)"
+      >
+        <img [src]="asset.thumbnailUrl" [alt]="asset.name" loading="lazy" />
+        <span>{{ asset.name }}</span>
+      </button>
+    </div>
+  </div>
+</div>
