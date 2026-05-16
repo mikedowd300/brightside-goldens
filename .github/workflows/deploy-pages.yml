@@ -42,7 +42,7 @@ jobs:
           EOF
 
       - name: Build frontend
-        run: yarn build
+        run: yarn build --base-href /brightside-goldens/ --deploy-url /brightside-goldens/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
