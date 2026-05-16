@@ -12,13 +12,14 @@ import { CloudinaryAsset, CloudinaryAssetsResponse, ContentService } from '../..
 })
 export class CloudinaryFileSelectorComponent implements OnInit {
   private readonly contentService = inject(ContentService);
+  private readonly rootPrefix = 'brightside-goldens';
 
   @Input() initialPrefix = '';
   @Output() selected = new EventEmitter<string>();
   @Output() closed = new EventEmitter<void>();
 
   protected assets: CloudinaryAsset[] = [];
-  protected prefix = '';
+  protected folderPath = '';
   protected isLoading = true;
   protected error = '';
   protected source: CloudinaryAssetsResponse['source'] = 'fallback';
@@ -27,8 +28,12 @@ export class CloudinaryFileSelectorComponent implements OnInit {
     return this.source === 'live' ? 'Live Cloudinary files' : 'Fallback sample files';
   }
 
+  protected get prefix(): string {
+    return this.buildPrefix(this.folderPath);
+  }
+
   ngOnInit(): void {
-    this.prefix = this.normalizePrefix(this.initialPrefix);
+    this.folderPath = this.stripRootPrefix(this.normalizePrefix(this.initialPrefix));
     this.loadAssets();
   }
 
@@ -50,16 +55,42 @@ export class CloudinaryFileSelectorComponent implements OnInit {
   }
 
   protected applyPrefix(): void {
-    this.prefix = this.normalizePrefix(this.prefix);
+    this.folderPath = this.stripRootPrefix(this.normalizePrefix(this.folderPath));
     this.loadAssets();
   }
 
   protected clearPrefix(): void {
-    this.prefix = '';
+    this.folderPath = '';
     this.loadAssets();
   }
 
   private normalizePrefix(value: string): string {
     return value.trim().replace(/^\/+|\/+$/g, '');
+  }
+
+  private stripRootPrefix(value: string): string {
+    if (!value) {
+      return '';
+    }
+
+    if (value === this.rootPrefix) {
+      return '';
+    }
+
+    if (value.startsWith(`${this.rootPrefix}/`)) {
+      return value.slice(this.rootPrefix.length + 1);
+    }
+
+    return value;
+  }
+
+  private buildPrefix(value: string): string {
+    const normalizedValue = this.normalizePrefix(value);
+
+    if (!normalizedValue) {
+      return this.rootPrefix;
+    }
+
+    return `${this.rootPrefix}/${normalizedValue}`;
   }
 }

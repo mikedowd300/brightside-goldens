@@ -24,9 +24,20 @@
 
 <section class="admin-shell" *ngIf="hasAdminAccess && content as site; else adminLoading">
   <div class="admin-header">
-    <p>
-      Use the page tabs to edit content, or switch to <strong>Raw JSON</strong> to paste a JSON object.
-    </p>
+    <div class="admin-header-toprow">
+      <p>
+        Use the page tabs to edit content, or switch to <strong>Raw JSON</strong> to paste a JSON object.
+      </p>
+
+      <a
+        class="cloudinary-link-button"
+        href="https://console.cloudinary.com/app/c-da3fa747ca0ba8556b5fe58f6fb4dd/assets/media_library/search?q=&view_mode=mosaic"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Open Cloudinary
+      </a>
+    </div>
 
     <div class="mode-toggle">
       <button type="button" [class.active]="mode === 'form'" (click)="setMode('form')">

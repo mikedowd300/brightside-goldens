@@ -46,6 +46,13 @@
   margin-top: 1rem;
 }
 
+.admin-header-toprow {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 h1,
 h2,
 h3,
@@ -373,6 +380,24 @@ button.active,
   color: #fffdf8;
 }
 
+.cloudinary-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  padding: 0.75rem 1.15rem;
+  background: #427884;
+  color: #fffdf8;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cloudinary-link-button:hover {
+  background: #376a75;
+}
+
 .save-button {
   display: inline-flex;
   margin: 1.5rem 0 24px;
@@ -480,6 +505,11 @@ button:disabled {
   .admin-header,
   .admin-card {
     padding: 1.5rem;
+  }
+
+  .admin-header-toprow {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .split-grid {

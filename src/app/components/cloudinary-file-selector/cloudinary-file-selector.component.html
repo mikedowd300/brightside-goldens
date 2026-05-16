@@ -11,17 +11,18 @@
     <div class="prefix-toolbar">
       <label class="prefix-field">
         <span>Folder Prefix</span>
+        <small class="prefix-root">brightside-goldens/</small>
         <input
           type="text"
-          [(ngModel)]="prefix"
-          placeholder="brightside-goldens/dogs"
+          [(ngModel)]="folderPath"
+          placeholder="dogs"
           (keydown.enter)="applyPrefix()"
         />
       </label>
 
       <div class="prefix-actions">
         <button type="button" (click)="applyPrefix()">Load Folder</button>
-        <button type="button" *ngIf="prefix" (click)="clearPrefix()">Show All</button>
+        <button type="button" *ngIf="folderPath" (click)="clearPrefix()">Show All</button>
       </div>
     </div>
 
