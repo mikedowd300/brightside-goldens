@@ -227,8 +227,8 @@ Railway-specific notes:
 - the server seeds that file from the bundled repo copy if the mounted file does not exist yet
 
 GitHub Pages-specific notes:
-- `public/CNAME` is set for `brightsidegoldens.com`
 - `.github/workflows/deploy-pages.yml` writes production `public/env.js` from the GitHub repository variable `API_BASE_URL`
+- staged rollout should use the default GitHub Pages project URL first, then add the custom domain at cutover
 
 ## Build Status Observed During This Pass
 

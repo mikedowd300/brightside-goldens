@@ -66,8 +66,10 @@ Set this GitHub repository variable to your Railway backend URL, for example:
 GitHub Pages workflow:
 - `.github/workflows/deploy-pages.yml`
 
-Custom domain support:
-- `public/CNAME` is set to `brightsidegoldens.com`
+Staged rollout note:
+- do not bind `brightsidegoldens.com` to this frontend until cutover day
+- first deploy to the default GitHub Pages project URL and test there
+- add the custom domain only when you are ready to replace the current live site
 
 ### Local frontend target switching
 
@@ -102,8 +104,9 @@ Behavior:
 4. Confirm Railway backend health at `/api/health`.
 5. In GitHub, set repository variable `API_BASE_URL` to the Railway public backend URL.
 6. Enable GitHub Pages with GitHub Actions.
-7. Push to `main` to deploy the frontend.
-8. Point the custom domain to GitHub Pages.
+7. Push to `main` to deploy the frontend to the default GitHub Pages URL.
+8. Test the staged frontend against the Railway backend.
+9. Point the custom domain to GitHub Pages only when ready for cutover.
 
 ## Combined deployment
 

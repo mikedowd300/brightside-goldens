@@ -147,6 +147,11 @@ The current intended production target is:
 - GitHub Pages for the frontend
 - Railway Hobby for the backend
 
+Current rollout recommendation:
+- deploy the new frontend to the default GitHub Pages project URL first
+- keep the existing live `brightsidegoldens.com` site in place during testing
+- only bind the custom domain during final cutover
+
 Backend persistence plan:
 - Railway volume mounted at `/app/data`
 - `DATA_FILE_PATH=/app/data/site-data.json`
