@@ -20,6 +20,7 @@
 
 <app-cloudinary-file-selector
   *ngIf="isPickerOpen"
+  [initialPrefix]="cloudinaryPrefix"
   (selected)="onSelect($event)"
   (closed)="closePicker()"
 />

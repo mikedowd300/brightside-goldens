@@ -7,12 +7,20 @@ const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 const cloudinaryConfig = {
   cloudName: process.env.CLOUDINARY_CLOUD_NAME || '',
   apiKey: process.env.CLOUDINARY_API_KEY || '',
   apiSecret: process.env.CLOUDINARY_API_SECRET || ''
 };
-const dataFilePath = path.join(__dirname, 'data', 'site-data.json');
+const bundledSeedDataFilePath = path.join(__dirname, 'data', 'site-data.json');
+const dataFilePath = process.env.DATA_FILE_PATH
+  ? path.resolve(process.env.DATA_FILE_PATH)
+  : bundledSeedDataFilePath;
+const dataDirectoryPath = path.dirname(dataFilePath);
 const browserBuildPath = path.join(
   __dirname,
   '..',
@@ -102,15 +110,39 @@ const mockCloudinaryAssets = [
   }
 ];
 
-app.use(cors());
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || !allowedOrigins.length || allowedOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error(`Origin ${origin} is not allowed by CORS.`));
+    }
+  })
+);
 app.use(express.json());
 
+async function ensureSiteDataFile() {
+  await fs.mkdir(dataDirectoryPath, { recursive: true });
+
+  try {
+    await fs.access(dataFilePath);
+  } catch {
+    const seedContents = await fs.readFile(bundledSeedDataFilePath, 'utf-8');
+    await fs.writeFile(dataFilePath, seedContents);
+  }
+}
+
 async function readSiteData() {
+  await ensureSiteDataFile();
   const fileContents = await fs.readFile(dataFilePath, 'utf-8');
   return JSON.parse(fileContents);
 }
 
 async function writeSiteData(data) {
+  await ensureSiteDataFile();
   await fs.writeFile(dataFilePath, JSON.stringify(data, null, 2));
 }
 
@@ -216,6 +248,14 @@ app.get('{*any}', async (_request, response, next) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Brightside Goldens API listening on port ${port}`);
-});
+ensureSiteDataFile()
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Brightside Goldens API listening on port ${port}`);
+      console.log(`Site data file: ${dataFilePath}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Unable to initialize site data file.', error);
+    process.exit(1);
+  });

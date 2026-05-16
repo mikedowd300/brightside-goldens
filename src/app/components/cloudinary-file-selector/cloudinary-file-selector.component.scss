@@ -73,6 +73,35 @@
   color: #8b4a08;
 }
 
+.prefix-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.prefix-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.prefix-field span {
+  color: #355f68;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.prefix-field input {
+  width: 100%;
+}
+
+.prefix-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
 .asset-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -103,6 +132,12 @@
 
 .close-button {
   flex: 0 0 auto;
+}
+
+@media (max-width: 720px) {
+  .prefix-toolbar {
+    grid-template-columns: 1fr;
+  }
 }
 
 @keyframes cloudinary-spinner {

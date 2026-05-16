@@ -8,6 +8,23 @@
       <button type="button" class="close-button" (click)="closed.emit()">Close</button>
     </div>
 
+    <div class="prefix-toolbar">
+      <label class="prefix-field">
+        <span>Folder Prefix</span>
+        <input
+          type="text"
+          [(ngModel)]="prefix"
+          placeholder="brightside-goldens/dogs"
+          (keydown.enter)="applyPrefix()"
+        />
+      </label>
+
+      <div class="prefix-actions">
+        <button type="button" (click)="applyPrefix()">Load Folder</button>
+        <button type="button" *ngIf="prefix" (click)="clearPrefix()">Show All</button>
+      </div>
+    </div>
+
     <div class="file-selector-loading" *ngIf="isLoading" aria-live="polite" aria-busy="true">
       <span class="file-selector-spinner" aria-hidden="true"></span>
       <p class="file-selector-state">Loading files...</p>
@@ -15,6 +32,10 @@
 
     <p class="file-selector-state is-error" *ngIf="!isLoading && error">
       {{ error }}
+    </p>
+
+    <p class="file-selector-state" *ngIf="!isLoading && !error && !assets.length">
+      No files found for this folder prefix.
     </p>
 
     <div class="asset-grid" *ngIf="!isLoading && !error">

@@ -14,6 +14,7 @@ export class AdminImageFieldComponent {
   @Input() label = 'Image URL';
   @Input() value = '';
   @Input() invalid = false;
+  @Input() cloudinaryPrefix = '';
 
   @Output() valueChange = new EventEmitter<string>();
   @Output() changed = new EventEmitter<void>();

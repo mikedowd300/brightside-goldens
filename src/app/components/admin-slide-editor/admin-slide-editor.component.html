@@ -24,6 +24,7 @@
     <div class="editor-panel-inner">
       <app-admin-image-field
         label="Image URL"
+        cloudinaryPrefix="brightside-goldens/home"
         [(value)]="slide.url"
         (changed)="changed.emit()"
       />

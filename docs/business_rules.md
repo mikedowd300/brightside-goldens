@@ -1,201 +1,111 @@
-# Brightside Goldens – Business Rules & Product Direction
+# Brightside Goldens Business Rules
 
-## Core Purpose
+## Project Scope
 
-Brightside Goldens is a content-driven breeder website.
+Brightside Goldens is a breeder website, not an account-based software product.
 
-Its job is to:
-- present the Brightside Goldens brand clearly
-- show current and planned litters
+The site exists to:
+- present the Brightside Goldens brand
+- showcase litters and timing
 - introduce the dogs in the program
-- answer common questions
-- give visitors a clear way to reach out
+- explain breeding philosophy and common questions
+- give visitors a way to contact the kennel
 
-This is not a user-account product like Blackjack Lab. The site is much closer to a brochure, catalog, and inquiry website with a lightweight internal content editor.
+This project should stay separate from Blackjack Lab in both planning and implementation.
 
----
+## Primary Audiences
 
-## Audience
+- families looking for a puppy now or in an upcoming litter
+- families researching the program before reaching out
+- people evaluating sires, dams, and health/testing details
+- the site owner using the internal content editor
 
-Primary audiences:
-- families interested in a puppy
-- people researching future litters and timing
-- people evaluating the breeding program
-- breeders or owners interested in stud services
+## Product Direction
 
-Secondary audience:
-- the site owner/editor maintaining content through the admin studio
+The current product direction is a structured content site with a lightweight internal editor.
 
----
-
-## Content Strategy
-
-The site is currently driven by a single structured site-content object rather than a database-backed CMS.
-
-Current content model includes:
-- brand name
-- homepage slideshow and highlights
-- puppies page intro and litter records
-- our boys page content and dog profiles
-- our girls page content and dog profiles
-- about us page content
-- contact us page content
-- FAQs
-
-Current product direction:
-- keep content editing highly structured
-- prefer predictable fields over free-form layout building
-- allow the owner to update real site content without editing code
-- keep the live site readable, warm, and simple
-
----
+That means:
+- public pages should stay simple, warm, and easy to scan
+- content should be managed through structured fields where possible
+- the site should not drift into a generic block-based CMS unless requirements change
+- editing should be realistic for a single owner/operator, not a multi-user editorial team
 
 ## Page Intent
 
 ### Home
 
 The homepage should:
-- establish the Brightside Goldens brand
-- introduce the overall program quickly
-- showcase photography prominently
-- highlight a few key values or selling points
+- lead with photography
+- reinforce trust and tone quickly
+- summarize the program through concise highlights
 
 ### Puppies
 
-The puppies page should:
-- act as the main litter-availability page
+The puppies page is the main availability page.
+
+It should:
+- explain current or expected litters
 - distinguish between planned, on-the-way, arrived, and homed litters
-- help visitors understand timing and next steps
-- connect each litter to the sire and mother
-
-Current litter statuses:
-- `PLANNED`
-- `ON_THE_WAY`
-- `ARRIVED`
-- `HOMED`
-
-Current display direction:
-- `HOMED` litters should not be treated like available/current litters
-- planned and on-the-way litters may show puppy photos from previous litters for the same pairing
-- arrived litters may show current puppy images and selection/visit guidance
+- connect each litter to sire and mother information
+- help a visitor understand whether to inquire now or wait
 
 ### Our Boys / Our Girls
 
 These pages should:
-- introduce the dogs in the program
-- present them as profiles, not raw records
-- support multiple images per dog
-- allow inactive dogs to remain in content history without dominating the live presentation
+- present dogs as profiles, not raw database rows
+- support multiple photos per dog
+- allow inactive dogs to remain in the data model without appearing prominently on the public site
 
 ### About Us
 
-The About Us page should:
-- communicate the philosophy and personality of the program
-- use structured editorial content
-- feel warm and trustworthy rather than overly corporate
+The About page should:
+- explain the kennel philosophy and family story
+- sound personal and trustworthy
+- avoid overly corporate language
 
 ### Contact Us
 
-The Contact Us page should:
-- make it easy for visitors to initiate contact
-- clearly show the primary email address
-- invite inquiry about litters, timing, and next steps
-
-Current direction:
-- this is a contact/info page, not a fully implemented lead-management workflow
+The Contact page should:
+- make it easy to send an inquiry
+- show the best current contact details
+- support questions about litters, timing, and stud service
 
 ### FAQs
 
-The FAQs page should:
-- answer common buyer questions
-- use a simple accordion/list presentation
-- be fully editable from the internal admin studio
-
----
-
-## Admin Studio Direction
-
-The internal admin area is currently called:
-- `Brightside Goldens Site Content Editor`
-
-Current route:
-- `/brightside-studio`
-
-Current access model:
-- access is protected by a passphrase gate in the frontend
-- this is a lightweight internal editor, not a multi-user role-based admin system
-
-Current editor modes:
-- structured editor
-- raw JSON editor
-
-Current product direction:
-- structured editing should be the primary mode
-- raw JSON should remain available as an escape hatch for advanced edits
-
-Current editable areas:
-- home
-- puppies
-- our boys
-- our girls
-- about us
-- contact us
-- FAQs
-
-Current editing expectations:
-- content changes should feel direct and visual
-- array-based content should support add/delete workflows
-- editing should preserve the overall content schema
-
----
-
-## Image Strategy
-
-Images are central to the site experience.
-
-Current product direction:
-- home uses slideshow imagery
-- dog profiles support multiple images
-- litters support puppy-image strips/galleries
-- editors should be able to choose from Cloudinary-backed assets when available
-
-Current fallback direction:
-- the app can fall back to mock Cloudinary assets when live Cloudinary credentials are not configured
-
----
-
-## FAQ Strategy
-
-Current FAQ shape direction:
-- `question`
-- `answer` as an array of paragraphs/strings
-
-Current behavior direction:
-- FAQs are site-owned content, not user-generated content
-- they should be editable in the admin studio
-- they do not need per-page scoping in the current site model
-
----
+The FAQ page should:
+- answer repeat questions clearly
+- stay editable by the owner
+- use a simple accordion/list pattern rather than dense long-form copy
 
 ## Editorial Rules
 
-The live site should feel:
+Public-facing copy should feel:
 - warm
-- clear
 - trustworthy
-- easy to scan
+- direct
+- easy to skim
 
-Content should avoid:
-- overly technical wording
-- cluttered CTAs
-- admin/CMS jargon leaking into the public site
+Public-facing copy should avoid:
+- CMS/editor terminology
+- placeholder text
+- obvious test data
+- contradictory litter status messaging
 
----
+## Admin Rules
 
-## Anti-Patterns
+The internal editor is currently a convenience tool, not a secure admin platform.
 
-Do NOT:
-- turn the site into an overbuilt CMS unless the business truly needs it
-- require database-backed content management if the JSON-backed model remains sufficient
-- expose internal admin/editor tooling publicly
-- let structured content drift into inconsistent shapes that break rendering
+Business implications:
+- it is acceptable for a single trusted owner workflow
+- it should not be treated as a true user-permission system
+- content integrity matters more than complex editor features
+
+## Current Known Content Risks
+
+The current repository includes some draft or placeholder content that should be treated as unfinished business rules rather than final copy:
+- placeholder dog text in `ourBoys`
+- sample or incomplete FAQ answers
+- hardcoded contact details in the contact page template
+- a hardcoded admin passphrase in frontend code
+
+Those items should be cleaned up before treating the site as production-ready.

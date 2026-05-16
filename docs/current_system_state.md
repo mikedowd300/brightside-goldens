@@ -1,84 +1,31 @@
-# Brightside Goldens – Current System State / Rebuild Guide
+# Brightside Goldens Current System State
 
-This file is the practical handoff document for future Codex threads.
+This file is the handoff summary for future Brightside Goldens Codex threads.
 
-Use it together with:
+Use it with:
 - [/Users/mikedowd/brightside-goldens/docs/business_rules.md](/Users/mikedowd/brightside-goldens/docs/business_rules.md)
 - [/Users/mikedowd/brightside-goldens/docs/technical_spec.md](/Users/mikedowd/brightside-goldens/docs/technical_spec.md)
 
-This document focuses on:
-- what is actually built right now
-- how the content/editor system currently works
-- which implementation decisions are deliberate
-- what a new thread should preserve if rebuilding or extending the site
+## What Exists Right Now
 
----
+The repo already contains a real working site structure, not just a starter scaffold.
 
-## Current Project Identity
+Implemented areas:
+- home page
+- puppies page
+- our boys page
+- our girls page
+- about page
+- contact page
+- FAQ page
+- internal admin/editor route
+- Express API for site data
+- JSON persistence
+- optional Cloudinary asset browsing
 
-Repo:
-- [/Users/mikedowd/brightside-goldens](/Users/mikedowd/brightside-goldens)
+## Current Page Map
 
-Project type:
-- Angular content site with Node/Express wrapper
-
-Current positioning:
-- a breeder/program website for Brightside Goldens
-- not an account-based application
-- not a database-backed CMS
-- not a marketplace or e-commerce system
-
-Current persistence model:
-- JSON document in:
-  - [/Users/mikedowd/brightside-goldens/server/data/site-data.json](/Users/mikedowd/brightside-goldens/server/data/site-data.json)
-
----
-
-## What Is Already Built
-
-Public site pages:
-- home
-- puppies
-- our boys
-- our girls
-- about us
-- contact us
-- FAQs
-
-Internal editor:
-- `/brightside-studio`
-- passphrase-gated
-- structured editor mode
-- raw JSON editor mode
-
-Backend/API:
-- site-data read endpoint
-- site-data full save endpoint
-- Cloudinary asset picker endpoint
-- health endpoint
-
-Media/editor support:
-- Cloudinary file selector component
-- fallback mock Cloudinary assets when credentials are missing
-
----
-
-## The Most Important Architectural Fact
-
-This site is currently a **structured JSON-backed content system**, not a database-backed CMS.
-
-That means:
-- the entire site content is treated as one structured object
-- the admin/editor saves the full object back to disk
-- rendering depends heavily on the content schema staying stable
-
-This is the central thing a future thread must understand before proposing “simple improvements.”
-
----
-
-## Current Routing Reality
-
-Frontend routes:
+Public routes:
 - `/`
 - `/home`
 - `/puppies`
@@ -87,202 +34,171 @@ Frontend routes:
 - `/about-us`
 - `/contact-us`
 - `/faqs`
+
+Internal route:
 - `/brightside-studio`
 
-Admin note:
-- `/admin` currently redirects to `/`
-- the real editor route is `/brightside-studio`
+## Current Content Strategy
 
----
+The site is built around one structured content document in:
+- [/Users/mikedowd/brightside-goldens/server/data/site-data.json](/Users/mikedowd/brightside-goldens/server/data/site-data.json)
 
-## Current Content Model Reality
+This is the key architectural fact to preserve.
 
-The frontend content types live in:
-- [/Users/mikedowd/brightside-goldens/src/app/site-content.ts](/Users/mikedowd/brightside-goldens/src/app/site-content.ts)
+The project is currently:
+- a structured JSON-backed content site
+- a single-owner editor workflow
+- not a database-backed CMS
+- not an e-commerce or account platform
 
-Key implementation details:
-- FAQ answers are arrays of strings
-- dog profiles support multiple images
-- litter records contain parent references plus puppy images
-- “Our Boys,” “Our Girls,” “About Us,” and “Contact Us” all use a shared `PageContent` style model
+## Current Content/Data Sources
 
-This is not a generic block editor.
-It is a site-specific structured content model.
+### Primary content
 
-That is a feature, not an accident.
+- `server/data/site-data.json`
 
----
+### Public page rendering
 
-## Puppies / Litters Behavior
+Most public pages read from the site-content JSON through `ContentService`.
 
-This is one of the most domain-specific parts of the site.
-
-Current behavior:
-- litters use statuses:
-  - `PLANNED`
-  - `ON_THE_WAY`
-  - `ARRIVED`
-  - `HOMED`
-- the public puppies page filters out `HOMED` litters from the main display
-- planned and on-the-way litters can show puppy images from previous litters with the same pairing
-- arrived litters can show current-litter puppy images and ready-to-go-home messaging
-- sire and mother can resolve against dog profiles by anchor/reference
-
-This means the litter model is doing real presentation work, not just storing text.
-
----
-
-## Admin Studio Reality
-
-The admin studio is a lightweight internal content editor, not a hardened enterprise admin backend.
-
-Current access model:
-- passphrase gate on the frontend
-
-Important implication:
-- this is fine for a lightweight internal tool
-- but it should not be mistaken for true role-based backend authorization
-
-Current editor modes:
-- structured editor
-- raw JSON
-
-Current sections/tabs:
-- Home
-- Puppies
-- Our Boys
-- Our Girls
-- About Us
-- Contact Us
-- FAQs
-
-Current editing style:
-- arrays can be added to and removed from
-- content is edited inline
-- some tabs show floating save UI
-- raw JSON remains available for advanced/manual edits
-
-Important editor components:
-- `admin-slide-editor`
-- `admin-dog-editor`
-- `admin-litter-editor`
-- `admin-faq-editor`
-- `cloudinary-file-selector`
-
----
-
-## Current Save Model
-
-There is one especially important implementation decision here:
-
-The save flow is currently **whole-document save**, not field-level patch save.
-
-In practice:
-- editor loads the full site-content object
-- editor mutates the object
-- save writes the full object back through `PUT /api/site-data`
-
-Why this matters:
-- simple mental model
-- easy to understand and debug
-- but not ideal for concurrent editing
-
-Any future refactor should treat this as an intentional simplicity tradeoff.
-
----
-
-## Current API Surface
-
-Backend file:
-- [/Users/mikedowd/brightside-goldens/server/server.js](/Users/mikedowd/brightside-goldens/server/server.js)
-
-Current endpoints:
-- `GET /api/health`
-- `GET /api/site-data`
-- `PUT /api/site-data`
-- `GET /api/cloudinary/assets`
-
-What they currently do:
-- `GET /api/site-data`
-  - returns the full site-content JSON
-- `PUT /api/site-data`
-  - saves the full site-content JSON
-- `GET /api/cloudinary/assets`
-  - loads live Cloudinary assets if configured
-  - otherwise returns fallback mock assets
-
-There is currently no:
-- database
-- partial-update API
-- inquiry submission backend
-- admin user system
-
----
-
-## Cloudinary Behavior
-
-Cloudinary support is present but optional.
-
-Current behavior:
-- if Cloudinary credentials are configured, the server calls Cloudinary and returns live assets
-- if not, the app still works using fallback mock assets
-
-This is useful because:
-- local development does not fully depend on Cloudinary
-- the editor UI can still be exercised without live credentials
-
----
-
-## What Feels Deliberate and Should Be Preserved
-
-These choices appear intentional and worth preserving unless requirements change:
-
-1. Combined deployment model
-- Node can serve both the built Angular app and the API
-
-2. Structured content instead of generic CMS blocks
-- easier to control breeder-site layout and consistency
-
-3. JSON file persistence
-- acceptable for the current scale and ownership model
-
-4. Separate public pages for:
+Pages that are mostly content-driven right now:
+- home
 - puppies
 - our boys
 - our girls
 - about us
-- contact us
 - FAQs
 
-5. Dedicated internal editing route:
-- `/brightside-studio`
+### Exceptions and hardcoded content
 
----
+The contact page is not fully content-driven yet.
 
-## Likely Next Gaps
+Current hardcoded values still live in the contact page component/template:
+- headline
+- intro copy
+- email
+- phone
+- location
+- EmailJS service configuration
 
-These are the things a future thread would likely revisit:
-- stronger admin authentication
-- contact/inquiry form submission workflow
-- save/version history or backup strategy
-- more robust production deployment notes
-- partial content save APIs if the editor becomes more complex
+This is important because the admin editor gives the impression that `contactUs` is fully wired, but it is only partially wired today.
 
-But those are future enhancements, not proof that the current shape is wrong.
+### Media sources
 
----
+Images currently come from:
+- direct Cloudinary URLs saved in the JSON content file
+- Cloudinary API asset listing when env vars are configured
+- fallback mock asset data when Cloudinary is not configured
 
-## Suggested New-Thread Starting Prompt
+Current Cloudinary folder workflow:
+- home slideshow pickers default to `brightside-goldens/home`
+- dog image pickers default to `brightside-goldens/dogs`
+- litter puppy image pickers default to `brightside-goldens/puppies`
+- the picker also allows manually changing the folder prefix when needed
 
-If a future thread needs to continue this project, start with something like:
+## Current Admin Reality
 
-“Read `/Users/mikedowd/brightside-goldens/docs/current_system_state.md`, `/Users/mikedowd/brightside-goldens/docs/business_rules.md`, and `/Users/mikedowd/brightside-goldens/docs/technical_spec.md` first. This project is a JSON-backed Angular + Express content site for Brightside Goldens, with a passphrase-gated internal editor at `/brightside-studio`. Preserve the structured content model unless there is a strong reason to change it.”
+The admin studio is already fairly substantial.
 
----
+Current capabilities:
+- passphrase gate on `/brightside-studio`
+- structured editor mode
+- raw JSON mode
+- add/edit/delete slideshow items
+- add/edit/delete home highlights
+- add/edit/delete litters
+- add/edit/delete dog profiles
+- add/edit/delete FAQ items
+- edit About Us paragraphs
+- edit Contact Us title and intro in the content model
 
-## Maintenance Rule
+Important caveat:
+- access control is frontend-only and not secure for a hardened production admin workflow
 
-When major site behavior changes, update this file with:
-- what changed
-- whether it was a product decision or technical refactor
-- what a future rebuild must preserve
+## Current Public-Site Behavior
+
+- home rotates slideshow images every 5 seconds
+- puppies hides litters with status `HOMED`
+- sire and mother references can resolve to dog profiles for richer display
+- dog profile cards rotate through multiple images
+- only active dogs with a name and image are shown on dog pages
+- FAQ uses accordion open/close behavior
+
+## Deployment Approach
+
+The intended deployment model is a combined app:
+- build Angular into `dist/brightside-goldens`
+- run the Express server
+- let Express serve both the API and the built frontend
+
+Local development uses:
+- `npm start`
+- Angular dev server on `4200`
+- Express server on `3000`
+- `/api` proxying via `proxy.conf.json`
+
+The repo is now also prepared for split deployment:
+- frontend can stay static
+- backend can run on a separate Node host
+- frontend-to-backend origin is configurable through `public/env.js`
+- backend browser access can be constrained with `ALLOWED_ORIGINS`
+
+The current intended production target is:
+- GitHub Pages for the frontend
+- Railway Hobby for the backend
+
+Backend persistence plan:
+- Railway volume mounted at `/app/data`
+- `DATA_FILE_PATH=/app/data/site-data.json`
+- backend seeds that file from the bundled JSON if the mounted file starts empty
+
+## Known Unfinished Work
+
+This is the most important section for future threads.
+
+### Content cleanup
+
+- placeholder text exists in `server/data/site-data.json`
+- some FAQ answers are obvious draft/test text
+- some alt text is weak or placeholder quality
+- some dog and litter data looks like migrated sample content rather than final production content
+
+### Wiring gaps
+
+- public contact page does not render `contactUs` content from the JSON model
+- public About page ignores `aboutUs.title` and `aboutUs.intro`
+- some admin-editable fields do not visibly affect the corresponding public page yet
+
+### Security/production concerns
+
+- admin passphrase is hardcoded in frontend code
+- admin gating uses `sessionStorage`, not backend auth
+- site-data save endpoint writes request bodies directly to disk without server-side schema validation
+
+### Verification gaps
+
+- the repo currently has no unit-test setup
+- production build was not successfully verified during this pass
+
+### Navigation/content UX gaps
+
+- top-level public navigation currently emphasizes Home, Puppies, Our Boys, and Our Girls
+- About Us, Contact Us, and FAQs are only exposed in the nav while on the admin route
+- this is likely not the intended public-site navigation for a breeder website
+
+## Suggested Next Build Steps
+
+If a future thread needs a concrete implementation backlog, start here:
+
+1. Finish wiring content-managed pages so admin edits reliably affect the public site.
+2. Clean placeholder/draft content out of `site-data.json`.
+3. Fix or simplify test/build verification so the repo has a trustworthy health check.
+4. Decide whether the current frontend-only admin gate is acceptable or needs hardening.
+5. Revisit public navigation so all core brochure pages are discoverable.
+
+## Working Assumption To Preserve
+
+Future work should assume the right default is:
+- keep the structured JSON content model
+- improve wiring and polish around it
+- avoid unnecessary CMS/database complexity unless business requirements clearly change
