@@ -3,15 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <title>Brightside Goldens</title>
-    <base href="/brightside-goldens/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Brightside Goldens shares available litters, care details, and happy updates."
-    />
+    <script>
+      (function () {
+        var repoBase = '/brightside-goldens/';
+        var pathname = window.location.pathname;
+        var path = pathname.indexOf(repoBase) === 0 ? pathname.slice(repoBase.length) : pathname;
+        var search = window.location.search ? window.location.search.slice(1).replace(/&/g, '~and~') : '';
+        var hash = window.location.hash || '';
+        var query = '?p=' + encodeURIComponent(path);
+
+        if (search) {
+          query += '&q=' + search;
+        }
+
+        window.location.replace(repoBase + query + hash);
+      })();
+    </script>
   </head>
-  <body>
-    <script src="env.js"></script>
-    <app-root></app-root>
-  </body>
+  <body></body>
 </html>

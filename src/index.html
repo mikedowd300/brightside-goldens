@@ -11,6 +11,25 @@
     />
   </head>
   <body>
+    <script>
+      (function () {
+        var redirect = window.location.search.match(/[?&]p=([^&]+)/);
+        var query = window.location.search.match(/[?&]q=([^&]+)/);
+
+        if (!redirect) {
+          return;
+        }
+
+        var path = decodeURIComponent(redirect[1]).replace(/~and~/g, '&');
+        var cleanUrl = window.location.origin + '/brightside-goldens/' + path.replace(/^\/+/, '');
+
+        if (query) {
+          cleanUrl += '?' + decodeURIComponent(query[1]).replace(/~and~/g, '&');
+        }
+
+        window.history.replaceState(null, '', cleanUrl);
+      })();
+    </script>
     <script src="env.js"></script>
     <app-root></app-root>
   </body>
