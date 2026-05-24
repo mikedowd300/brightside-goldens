@@ -23,13 +23,26 @@ export class CloudinaryFileSelectorComponent implements OnInit {
   protected isLoading = true;
   protected error = '';
   protected source: CloudinaryAssetsResponse['source'] = 'fallback';
+  protected useCloudinaryRoot = false;
 
   protected get sourceText(): string {
     return this.source === 'live' ? 'Live Cloudinary files' : 'Fallback sample files';
   }
 
   protected get prefix(): string {
+    if (this.useCloudinaryRoot) {
+      return '';
+    }
+
     return this.buildPrefix(this.folderPath);
+  }
+
+  protected get prefixDescription(): string {
+    if (this.useCloudinaryRoot) {
+      return 'Cloudinary account root';
+    }
+
+    return this.folderPath ? `${this.rootPrefix}/${this.folderPath}` : this.rootPrefix;
   }
 
   ngOnInit(): void {
@@ -55,12 +68,19 @@ export class CloudinaryFileSelectorComponent implements OnInit {
   }
 
   protected applyPrefix(): void {
+    this.useCloudinaryRoot = false;
     this.folderPath = this.stripRootPrefix(this.normalizePrefix(this.folderPath));
     this.loadAssets();
   }
 
   protected clearPrefix(): void {
+    this.useCloudinaryRoot = false;
     this.folderPath = '';
+    this.loadAssets();
+  }
+
+  protected loadCloudinaryRoot(): void {
+    this.useCloudinaryRoot = true;
     this.loadAssets();
   }
 

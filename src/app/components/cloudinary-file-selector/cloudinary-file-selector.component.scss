@@ -73,6 +73,13 @@
   color: #8b4a08;
 }
 
+.prefix-summary {
+  margin: -0.25rem 0 1rem;
+  color: #52727a;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .prefix-toolbar {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -129,6 +136,15 @@
 .prefix-actions button:hover,
 .close-button:hover {
   background: #c9e3e8;
+}
+
+.prefix-actions .secondary-action {
+  background: #edf4f6;
+  color: #355f68;
+}
+
+.prefix-actions .secondary-action:hover {
+  background: #e1edf0;
 }
 
 .asset-grid {

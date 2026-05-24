@@ -18,6 +18,7 @@ export class AdminDogEditorComponent {
   @Input() validationError = '';
   @Input() detailIdPrefix = '';
   @Input() imageIdPrefix = '';
+  @Input() cloudinaryPrefix = 'brightside-goldens/dogs';
   @Input() expandedImageIndex: number | null = null;
   @Input() expanded = false;
   protected isExpanded = false;

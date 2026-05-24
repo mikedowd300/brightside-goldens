@@ -254,6 +254,7 @@
           [id]="'dog-card-' + i"
           [dog]="dog"
           [index]="i"
+          [cloudinaryPrefix]="activeTab === 'ourGirls' ? 'brightside-goldens/girls' : 'brightside-goldens/boys'"
           [expanded]="isNewDogExpanded(i)"
           [warning]="getDogDeleteWarning(i)"
           [validationError]="getDogValidationError(i)"

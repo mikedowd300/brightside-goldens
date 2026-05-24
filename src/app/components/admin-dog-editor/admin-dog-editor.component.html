@@ -99,7 +99,7 @@
             <div class="nested-editor-panel-inner">
               <app-admin-image-field
                 label="Image URL"
-                cloudinaryPrefix="brightside-goldens/dogs"
+                [cloudinaryPrefix]="cloudinaryPrefix"
                 [(value)]="image.url"
                 [invalid]="!!validationError && !image.url?.trim() && imageIndex === 0"
                 (changed)="onImageChange()"

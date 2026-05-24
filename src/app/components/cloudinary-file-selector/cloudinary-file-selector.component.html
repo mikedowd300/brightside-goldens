@@ -23,8 +23,13 @@
       <div class="prefix-actions">
         <button type="button" (click)="applyPrefix()">Load Folder</button>
         <button type="button" *ngIf="folderPath" (click)="clearPrefix()">Show All</button>
+        <button type="button" class="secondary-action" (click)="loadCloudinaryRoot()">Load Cloudinary Root</button>
       </div>
     </div>
+
+    <p class="prefix-summary">
+      Viewing: {{ prefixDescription }}
+    </p>
 
     <div class="file-selector-loading" *ngIf="isLoading" aria-live="polite" aria-busy="true">
       <span class="file-selector-spinner" aria-hidden="true"></span>
