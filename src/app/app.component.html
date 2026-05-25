@@ -2,7 +2,7 @@
   <header class="site-header" [class.admin-header-layout]="isAdminRoute">
     <div class="header-copy">
       <a routerLink="/" class="brand-mark">
-        {{ isAdminRoute ? 'Brightside Goldend - Site Content editor' : ((siteContent$ | async)?.brand || 'Brightside Goldens') }}
+        {{ isAdminRoute ? 'Brightside Goldens - Site Content editor' : ((siteContent$ | async)?.brand || 'Brightside Goldens') }}
       </a>
     </div>
 
