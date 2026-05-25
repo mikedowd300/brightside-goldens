@@ -29,6 +29,8 @@ const browserBuildPath = path.join(
   'browser'
 );
 const defaultCloudinaryPrefix = '';
+const defaultCloudinaryMaxResults = 500;
+const maxCloudinaryMaxResults = 500;
 const mockCloudinaryAssets = [
   {
     name: 'Golden Puppy Basket',
@@ -146,7 +148,20 @@ async function writeSiteData(data) {
   await fs.writeFile(dataFilePath, JSON.stringify(data, null, 2));
 }
 
-async function readCloudinaryAssets(prefix = defaultCloudinaryPrefix) {
+function parseCloudinaryMaxResults(value) {
+  const parsedValue = Number.parseInt(value, 10);
+
+  if (Number.isNaN(parsedValue) || parsedValue <= 0) {
+    return defaultCloudinaryMaxResults;
+  }
+
+  return Math.min(parsedValue, maxCloudinaryMaxResults);
+}
+
+async function readCloudinaryAssets(
+  prefix = defaultCloudinaryPrefix,
+  maxResults = defaultCloudinaryMaxResults
+) {
   if (!cloudinaryConfig.cloudName || !cloudinaryConfig.apiKey || !cloudinaryConfig.apiSecret) {
     return {
       source: 'fallback',
@@ -159,7 +174,7 @@ async function readCloudinaryAssets(prefix = defaultCloudinaryPrefix) {
     `${cloudinaryConfig.apiKey}:${cloudinaryConfig.apiSecret}`
   ).toString('base64');
   const params = new URLSearchParams({
-    max_results: '100'
+    max_results: String(parseCloudinaryMaxResults(String(maxResults)))
   });
 
   if (prefix.trim()) {
@@ -225,7 +240,10 @@ app.put('/api/site-data', async (request, response) => {
 app.get('/api/cloudinary/assets', async (request, response) => {
   try {
     const prefix = typeof request.query.prefix === 'string' ? request.query.prefix : defaultCloudinaryPrefix;
-    const result = await readCloudinaryAssets(prefix);
+    const maxResults = typeof request.query.maxResults === 'string'
+      ? request.query.maxResults
+      : String(defaultCloudinaryMaxResults);
+    const result = await readCloudinaryAssets(prefix, maxResults);
     response.json(result);
   } catch (error) {
     response.json({

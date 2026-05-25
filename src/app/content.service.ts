@@ -29,9 +29,9 @@ export class ContentService {
     return this.http.put<{ message: string }>(getApiUrl('/api/site-data'), content);
   }
 
-  getCloudinaryAssets(prefix = ''): Observable<CloudinaryAssetsResponse> {
+  getCloudinaryAssets(prefix = '', maxResults = 500): Observable<CloudinaryAssetsResponse> {
     return this.http.get<CloudinaryAssetsResponse>(getApiUrl('/api/cloudinary/assets'), {
-      params: { prefix }
+      params: { prefix, maxResults }
     });
   }
 }
