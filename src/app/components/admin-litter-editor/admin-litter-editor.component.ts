@@ -63,6 +63,10 @@ export class AdminLitterEditorComponent {
     return this.motherOptions.find((dog) => dog.anchorId === this.litter.mother.dogAnchorId) ?? null;
   }
 
+  protected get contactCtaVisible(): boolean {
+    return this.litter.showContactCta !== false;
+  }
+
   protected onParentDogChange(role: 'sire' | 'mother', anchorId: string): void {
     const selectedDog =
       (role === 'sire' ? this.sireOptions : this.motherOptions).find((dog) => dog.anchorId === anchorId) ?? null;
@@ -80,6 +84,11 @@ export class AdminLitterEditorComponent {
   protected onParentImageChange(role: 'sire' | 'mother', imageUrl: string): void {
     const parent = role === 'sire' ? this.litter.sire : this.litter.mother;
     parent.image = imageUrl;
+    this.onFieldChange();
+  }
+
+  protected onContactCtaVisibilityChange(isVisible: boolean): void {
+    this.litter.showContactCta = isVisible;
     this.onFieldChange();
   }
 

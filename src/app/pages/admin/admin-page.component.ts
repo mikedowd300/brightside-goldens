@@ -42,7 +42,7 @@ export class AdminPageComponent {
   private readonly contentService = inject(ContentService);
   private readonly router = inject(Router);
   private readonly floatingSaveTabs: AdminTab[] = ['home', 'puppies', 'ourBoys', 'ourGirls', 'aboutUs'];
-  private savedHomeSnapshot: { brand: string; home: SiteContent['home'] } | null = null;
+  private savedHomeSnapshot: { brand: string; tagline?: string; home: SiteContent['home'] } | null = null;
   private savedPuppiesSnapshot: SiteContent['puppies'] | null = null;
   private savedOurBoysSnapshot: SiteContent['ourBoys'] | null = null;
   private savedOurGirlsSnapshot: SiteContent['ourGirls'] | null = null;
@@ -217,7 +217,7 @@ export class AdminPageComponent {
     this.contentService.getSiteContent().subscribe({
       next: (content) => {
         this.content = this.clone(content);
-        this.savedHomeSnapshot = { brand: content.brand, home: this.clone(content.home) };
+        this.savedHomeSnapshot = { brand: content.brand, tagline: content.tagline, home: this.clone(content.home) };
         this.savedPuppiesSnapshot = this.clone(content.puppies);
         this.savedOurBoysSnapshot = this.clone(content.ourBoys);
         this.savedOurGirlsSnapshot = this.clone(content.ourGirls);
@@ -657,6 +657,9 @@ export class AdminPageComponent {
       title: '',
       timeframeText: '',
       readyToGoHomeText: '',
+      showContactCta: true,
+      contactLinkText: 'Contact us',
+      contactTrailingText: 'to set up an appointment to select a puppy.',
       sire: this.createLitterParent(),
       mother: this.createLitterParent(),
       puppyImages: []
@@ -727,6 +730,7 @@ export class AdminPageComponent {
 
     if (tab === 'home' && this.savedHomeSnapshot) {
       this.content.brand = this.savedHomeSnapshot.brand;
+      this.content.tagline = this.savedHomeSnapshot.tagline;
       this.content.home = this.clone(this.savedHomeSnapshot.home);
     } else if (tab === 'puppies' && this.savedPuppiesSnapshot) {
       this.content.puppies = this.clone(this.savedPuppiesSnapshot);
@@ -759,6 +763,7 @@ export class AdminPageComponent {
     if (tab === 'home') {
       this.savedHomeSnapshot = {
         brand: this.content.brand,
+        tagline: this.content.tagline,
         home: this.clone(this.content.home)
       };
     } else if (tab === 'puppies') {

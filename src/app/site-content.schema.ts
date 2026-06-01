@@ -30,6 +30,7 @@ const dogProfileSchema = z
 
 const homePageContentSchema = z
   .object({
+    title: z.string().optional(),
     highlights: z.array(z.string()),
     slideshowImages: z.array(imageCardSchema)
   })
@@ -56,6 +57,9 @@ const litterRecordSchema = z
     title: z.string(),
     timeframeText: z.string().optional(),
     readyToGoHomeText: z.string().optional(),
+    showContactCta: z.boolean().optional(),
+    contactLinkText: z.string().optional(),
+    contactTrailingText: z.string().optional(),
     sire: litterParentSchema,
     mother: litterParentSchema,
     puppyImages: z.array(imageCardSchema).optional()
@@ -94,6 +98,7 @@ const pageContentSchema = z
 export const siteContentSchema = z
   .object({
     brand: z.string(),
+    tagline: z.string().optional(),
     home: homePageContentSchema,
     puppies: puppiesPageContentSchema,
     ourBoys: pageContentSchema,

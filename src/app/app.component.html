@@ -4,6 +4,9 @@
       <a routerLink="/" class="brand-mark">
         {{ isAdminRoute ? 'Brightside Goldens - Site Content editor' : ((siteContent$ | async)?.brand || 'Brightside Goldens') }}
       </a>
+      <p class="brand-tagline" *ngIf="!isAdminRoute && (siteContent$ | async)?.tagline as tagline">
+        {{ tagline }}
+      </p>
     </div>
 
     <nav class="site-nav">

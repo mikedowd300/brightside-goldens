@@ -42,6 +42,20 @@
         <span>Ready To Go Home Text</span>
         <textarea rows="3" [(ngModel)]="litter.readyToGoHomeText" (ngModelChange)="onFieldChange()"></textarea>
       </label>
+      <div class="checkbox-row">
+        <label class="checkbox-label">
+          <input type="checkbox" [ngModel]="contactCtaVisible" (ngModelChange)="onContactCtaVisibilityChange($event)" />
+          <span>Show Contact CTA</span>
+        </label>
+      </div>
+      <label *ngIf="contactCtaVisible">
+        <span>Contact Link Text</span>
+        <input type="text" [(ngModel)]="litter.contactLinkText" (ngModelChange)="onFieldChange()" />
+      </label>
+      <label *ngIf="contactCtaVisible">
+        <span>Text After Link</span>
+        <textarea rows="3" [(ngModel)]="litter.contactTrailingText" (ngModelChange)="onFieldChange()"></textarea>
+      </label>
 
       <div class="split-grid">
         <section class="nested-panel">

@@ -1,6 +1,8 @@
 {
-  "brand": "Brightside Goldens",
+  "brand": "Brightside Golden Retrievers",
+  "tagline": "Bred to the European Standard",
   "home": {
+    "title": "Brightside Goldens...",
     "highlights": [
       "Hand Raised with Love",
       "Champion Sired / Grand Sired",
@@ -11,266 +13,459 @@
       "AKC Registered",
       "Volhard Temperament Tested",
       "Stud Service Available",
-      ""
+      "Bred to the European Standard"
     ],
     "slideshowImages": [
       {
-        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496746/b7c4fbab1104f4bce0853b10f7936de2_y5stqa.jpg",
-        "alt": "A golden retriever puppy yawning in a basket",
-        "caption": "The earliest weeks are all about warmth, comfort, and a healthy start."
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963567/IMG_2880_sch90s.jpg",
+        "alt": "pup on chair, blue ",
+        "caption": ""
       },
       {
-        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774227451/IMG_8964_xpmoq8.jpg",
-        "alt": "Golden retriever puppies playing together",
-        "caption": "Playtime helps puppies build confidence, coordination, and curiosity."
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778966850/Screenshot_2026-05-16_at_3.24.56_PM_nmrzhr.png",
+        "alt": "Pups by the fire ",
+        "caption": ""
       },
       {
-        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774226274/puppy-under-chair_qqwxpv.png",
-        "alt": "A golden retriever puppy being held",
-        "caption": "Human connection starts early and stays central to the Brightside approach."
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963573/IMG_7742_zmyj0u.jpg",
+        "alt": "",
+        "caption": ""
       },
       {
-        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496746/c9e4afe914fc4ef269e50f3590b8948f_cakf1r.jpg",
-        "alt": "This is Gallo",
-        "caption": "This bear tastes good"
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963570/IMG_7219_y5bbco.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963559/IMG_5168_fd3oob.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963553/IMG_5073_t4t8zg.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963550/IMG_5007_diz5gj.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963542/IMG_4641_cvx5pc.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963539/IMG_2526_bepyrv.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963528/IMG_4125_wncaaz.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963525/IMG_4105_wdkfvy.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963522/IMG_3933_jrroox.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963519/IMG_3921_jiqgy9.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963516/IMG_3916_k8swgp.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963514/IMG_3130_lxnzdp.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963511/IMG_1528_m0bzm4.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963508/IMG_0906_gr9c1n.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963505/IMG_0901_mg9w0s.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963502/IMG_0878_cdfdvz.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963256/IMG_2976_lpkdgi.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963245/IMG_2411_wsmzbo.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963239/IMG_0492_pmccaw.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963545/IMG_4636_kux6my.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963253/IMG_2975_l0y7zb.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963237/IMG_0377_vixey0.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963247/IMG_2666_n1k7wd.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963234/IMG_0290_rucp90.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963231/IMG_0223_skixxg.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963533/IMG_6056_tshh9r.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963228/IMG_0096_ypsv4g.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963242/IMG_0759_bjbvmg.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963222/IMG_4233_ziqvom.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778963220/IMG_3529_ldntfl.jpg",
+        "alt": "",
+        "caption": ""
       }
     ]
   },
   "puppies": {
     "title": "Current and Expected Litters",
-    "intro": "We have two summer litters on their way!",
+    "intro": "Our pups have arrived!",
     "litters": [
       {
-        "status": "PLANNED",
-        "title": "Late Summer Planned Litter",
-        "timeframeText": "We expect this litter to arrive in late summer 2026. Timing may shift a bit, but we will share updates as the due window gets closer.",
+        "status": "ARRIVED",
+        "title": "Buddy and Baileys litter ",
+        "timeframeText": "We will be allowing puppy visits in mid June! ",
+        "readyToGoHomeText": "Males available! \nPups will be ready to go home the first week of July! ",
         "sire": {
-          "name": "Gallo",
-          "image": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496746/b7c4fbab1104f4bce0853b10f7936de2_y5stqa.jpg",
-          "dogAnchorId": "gallo"
+          "name": "Buddy",
+          "image": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778965437/IMG_5520_lo3y0i.jpg",
+          "dogAnchorId": "buddy"
         },
         "mother": {
-          "name": "Brightwater June",
-          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/june.jpg",
-          "dogAnchorId": "brightwater-june"
+          "name": "Bailey",
+          "image": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956756/IMG_6932_td93sa.jpg",
+          "dogAnchorId": "bailey"
         },
         "puppyImages": [
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-yawn.jpg",
-            "alt": "A golden retriever puppy yawning in a basket",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780251061/IMG_0276_xyhrny.jpg",
+            "alt": "",
             "caption": ""
           },
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-play.jpg",
-            "alt": "Golden retriever puppies playing together",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780251061/IMG_0287_uupktz.jpg",
+            "alt": "",
             "caption": ""
           },
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-snuggle.jpg",
-            "alt": "A golden retriever puppy being held",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780251061/IMG_0291_ob6xwr.jpg",
+            "alt": "",
             "caption": ""
           },
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-yawn.jpg",
-            "alt": "A golden retriever puppy yawning in a basket",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780251060/IMG_0271_q3t3nl.jpg",
+            "alt": "",
             "caption": ""
           },
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-play.jpg",
-            "alt": "Golden retriever puppies playing together",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780251059/IMG_0288_oqeo54.jpg",
+            "alt": "",
             "caption": ""
           },
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-snuggle.jpg",
-            "alt": "A golden retriever puppy being held",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780251058/IMG_0272_aydue2.jpg",
+            "alt": "",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780251058/IMG_0282_ib19rb.jpg",
+            "alt": "",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780251058/IMG_0298_rtp7r1.jpg",
+            "alt": "",
             "caption": ""
           }
-        ]
-      },
-      {
-        "status": "HOMED",
-        "title": "Early June Expected Litter",
-        "timeframeText": "This litter is expected to arrive during the first week of June 2026.",
-        "sire": {
-          "name": "Sunny Ridge Theo",
-          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/theo.jpg",
-          "dogAnchorId": "sunny-ridge-theo"
-        },
-        "mother": {
-          "name": "Brightwater June",
-          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/june.jpg",
-          "dogAnchorId": "brightwater-june"
-        },
-        "puppyImages": [
-          {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-play.jpg",
-            "alt": "Golden retriever puppies playing together",
-            "caption": ""
-          },
-          {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-snuggle.jpg",
-            "alt": "A golden retriever puppy being held",
-            "caption": ""
-          }
-        ]
+        ],
+        "contactLinkText": "Your Mom",
+        "contactTrailingText": "is hot",
+        "showContactCta": false
       },
       {
         "status": "ARRIVED",
-        "title": "Spring Litter Has Arrived",
-        "readyToGoHomeText": "These puppies will be ready to go home in early May 2026.",
+        "title": "Katie and Gallo’s Pups ",
+        "timeframeText": "The pups are here! They will be ready to meet June 12th. ",
+        "readyToGoHomeText": "Males and Females available!\nPups will be ready to meet soon and ready to go home the second week of July! ",
         "sire": {
-          "name": "Sunny Ridge Theo",
-          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/theo.jpg",
-          "dogAnchorId": "sunny-ridge-theo"
+          "name": "Gallo",
+          "image": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496746/c9e4afe914fc4ef269e50f3590b8948f_cakf1r.jpg",
+          "dogAnchorId": "gallo"
         },
         "mother": {
-          "name": "Meadow Bloom Ivy",
-          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/ivy.jpg",
-          "dogAnchorId": "meadow-bloom-ivy"
+          "name": "Katie",
+          "image": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956804/IMG_2224_vjmryw.jpg",
+          "dogAnchorId": "katie"
         },
         "puppyImages": [
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-yawn.jpg",
-            "alt": "A golden retriever puppy yawning in a basket",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264302/IMG_0342_fhvq1a.jpg",
+            "alt": "",
             "caption": ""
           },
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-play.jpg",
-            "alt": "Golden retriever puppies playing together",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264312/IMG_0312_azh3rb.jpg",
+            "alt": "",
             "caption": ""
           },
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-snuggle.jpg",
-            "alt": "A golden retriever puppy being held",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264313/IMG_0332_gttynt.jpg",
+            "alt": "",
             "caption": ""
           },
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-yawn.jpg",
-            "alt": "A golden retriever puppy yawning in a basket",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264318/IMG_0309_uhhrpk.jpg",
+            "alt": "",
             "caption": ""
           },
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-play.jpg",
-            "alt": "Golden retriever puppies playing together",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264312/IMG_0304_bk3cts.jpg",
+            "alt": "",
             "caption": ""
           },
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/puppy-snuggle.jpg",
-            "alt": "A golden retriever puppy being held",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264312/IMG_0316_r9ns6d.jpg",
+            "alt": "",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264307/IMG_0315_twdscl.jpg",
+            "alt": "",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264304/IMG_0319_o7nyt9.jpg",
+            "alt": "",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264307/IMG_0329_dzvtdq.jpg",
+            "alt": "",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264306/IMG_0339_wtd041.jpg",
+            "alt": "",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264305/IMG_0337_ftorpk.jpg",
+            "alt": "",
+            "caption": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1780264304/IMG_0333_okxhtp.jpg",
+            "alt": "",
             "caption": ""
           }
         ]
-      },
-      {
-        "status": "HOMED",
-        "title": "Archived Winter Litter",
-        "sire": {
-          "name": "Copper Lane Huck",
-          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/finn.jpg",
-          "dogAnchorId": "copper-lane-huck"
-        },
-        "mother": {
-          "name": "Brightwater Junes",
-          "image": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/june.jpg",
-          "dogAnchorId": "brightwater-junes"
-        },
-        "timeframeText": "A long time ago",
-        "puppyImages": []
       }
     ]
   },
   "ourBoys": {
-    "title": "If you remove this text in the admin page",
-    "intro": "and this text too, this whole component will disappear from this screen",
+    "title": "Meet Our Papas!",
+    "intro": "Stud Service Available ",
     "dogs": [
       {
         "active": true,
         "anchorId": "gallo",
         "name": "Gallo",
-        "subtitle": "Calm, observant, and incredibly gentle",
-        "description": "Gallo brings a steady, reassuring presence and a kind temperament that shows up in every interaction.",
-        "ctaText": "Ask us about using Gallo as your stud.",
+        "subtitle": "Jun.Int.Ch.JCh.Gr.Ser.JCh. Mne.JCh. JCh.BiH Grand JCh. Kurtuba Gongora",
+        "description": "Gallo is an imported Junior Champion of multiple countries. He brings champion-level correct structure, a sweet, sunny, roll-with-it Golden disposition and the unshakable belief that he is still a puppy who definitely will still fit on your lap for couch cuddles.\n\n",
+        "ctaText": "",
         "details": [
           "AKC# SS06748101",
           "DNA# V871938",
           "Hips: FCI A/A",
           "Elbows: FCI 0/0",
-          "Heart: (Cardiologist) Clear",
-          "Eyes: (Ophthalmologist) Normal",
-          "Genetic Panel: PRCD, PRA 1&2, DM, MD, NCL, ICT 1&2, RD, OI, CMS, DEB: ALL CLEAR"
+          "OFA Heart: (Cardiologist) Normal",
+          "OFA Eyes: (Ophthalmologist) Normal",
+          "Genetic Panel: PRCD, PRA 1&2, DM, MD, NCL, ICT 1&2, RD, OI, CMS, DEB: ALL CLEAR",
+          ""
         ],
         "images": [
           {
-            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496747/IMG_gallo_3.jpg",
-            "alt": "A male golden retriever sitting in a meadow"
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496746/c9e4afe914fc4ef269e50f3590b8948f_cakf1r.jpg",
+            "alt": ""
           },
           {
-            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496746/3203708b15f138325f381597cc81f453_i5myq8.jpg",
-            "alt": "Gallo being cute"
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1779676193/IMG_0207_eq9yiy.jpg",
+            "alt": ""
           },
           {
-            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496745/IMG_0189_ztj3ly.jpg",
-            "alt": "aaaaaaa"
-          }
-        ]
-      },
-      {
-        "active": false,
-        "anchorId": "copper-lane-finn",
-        "name": "Copper Lane Finn",
-        "subtitle": "Playful confidence with a sweet heart",
-        "description": "Finn is outgoing, affectionate, and always ready to lean into family life with enthusiasm.",
-        "ctaText": "Ask us about using Copper Lane Finn as your stud.",
-        "details": [
-          "AKC# SS06748101",
-          "DNA# V871938",
-          "Hips: FCI A/A",
-          "Elbows: FCI 0/0",
-          "Heart: (Cardiologist) Clear",
-          "Eyes: (Ophthalmologist) Normal",
-          "Genetic Panel: PRCD, PRA 1&2, DM, MD, NCL, ICT 1&2, RD, OI, CMS, DEB: ALL CLEAR"
-        ],
-        "images": [
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1779676449/IMG_6637_putldd.jpg",
+            "alt": ""
+          },
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/finn.jpg",
-            "alt": "A male golden retriever standing near a split rail fence"
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1779676402/IMG_6399_htxmv5.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1779676316/3203708b15f138325f381597cc81f453_um8iv5.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1779676369/IMG_6628_y1p9ec.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1774496746/b7c4fbab1104f4bce0853b10f7936de2_y5stqa.jpg",
+            "alt": ""
           }
         ]
       },
       {
         "active": true,
-        "anchorId": "copper-lane-huck",
-        "name": "Copper Lane Huck",
-        "subtitle": "Playful confidence with a sweet heart",
-        "description": "Huck is outgoing, affectionate, and always ready to lean into family life with enthusiasm.",
-        "ctaText": "Ask us about using Copper Lane Huck as your stud.",
+        "anchorId": "buddy",
+        "name": "Buddy",
+        "subtitle": "CH Apollon of Golden Duck ",
+        "description": "Buddy is our gorgeous imported European Champion. 3 of his 4 grandparents are also Champions of multiple countries, including his grandfather multi international Champion B.B. King Oligarchia. \nHis pups are super typey: super blocky & fluffy! He also passes along a calm, trainable demeanor and his funny sweet personality. He loves to give hugs. ",
+        "ctaText": "",
         "details": [
-          "AKC# SS06748101",
+          "AKC# SS06748101\n\n",
           "DNA# V871938",
-          "Hips: FCI A/A",
-          "Elbows: FCI 0/0",
-          "Heart: (Cardiologist) Clear",
-          "Eyes: (Ophthalmologist) Normal",
+          "Hips: FCI A/A\n",
+          "Elbows: FCI 0/0\n",
+          "OFA Heart: (Cardiologist) Normal\n",
+          "OFA Eyes: (Ophthalmologist) Normal\n",
           "Genetic Panel: PRCD, PRA 1&2, DM, MD, NCL, ICT 1&2, RD, OI, CMS, DEB: ALL CLEAR"
         ],
         "images": [
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/finn.jpg",
-            "alt": "A male golden retriever standing near a split rail fence"
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778965437/IMG_5520_lo3y0i.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778965242/IMG_0368_l8ndqa.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956845/IMG_0179_mwnwmv.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956845/IMG_6719_nesnsn.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956845/IMG_1067_gfhzwp.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956845/IMG_7983_jqljx7.jpg",
+            "alt": ""
           }
         ]
       },
       {
-        "active": false,
-        "anchorId": "the-invisible-dog",
-        "name": "The invisible dog",
-        "subtitle": "",
-        "description": "",
+        "active": true,
+        "anchorId": "max",
+        "name": "Max",
+        "subtitle": "Brightside's Battle Born",
+        "description": "Max comes from recently imported European lines, 2 grandparents and 6 of 8 great grandparents are European champions. We are excited about all he brings: excellent health, a sweet nature, beautiful European type, and of course, that signature goofy Golden grin.\n\n",
         "ctaText": "",
-        "details": [],
+        "details": [
+          "AKC# SS32630201\n",
+          "DNA# V10085110\n",
+          "CHIC# 192397\n",
+          "OFA hip: GOOD\n",
+          "OFA elbow: NORMAL\n",
+          "OFA heart: (Cardiologist) NORMAL\n",
+          "OFA eye: (Ophthalmologist) Normal\n",
+          "OFA Thyroid: Normal",
+          "OFA Dentition: Normal",
+          "OFA Patella: Normal",
+          "Genetic Panel: PRCD, PRA 1&2, DM, MD, NCL, ICT 1&2, RD, OI, CMS, DEB: ALL CLEAR"
+        ],
         "images": [
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/finn.jpg",
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956606/IMG_4184_kcljet.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778964470/IMG_4143_sgvcav.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778964487/IMG_2551_tobiq8.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956608/IMG_0781_rk4u2o.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956607/IMG_3273_phvmm6.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956606/IMG_4171_cyrt4i.jpg",
             "alt": ""
           }
         ]
@@ -278,51 +473,104 @@
     ]
   },
   "ourGirls": {
-    "title": "Bright, loving girls who set the tone for the program.s",
-    "intro": "Our girls are at the heart of Brightside Goldens. They combine loving temperaments, great instincts, and the calm confidence we value most.",
+    "title": "Meet Our Mamas",
+    "intro": "s,kjhdcfs,",
     "dogs": [
       {
         "active": true,
-        "anchorId": "meadow-bloom-ivy",
-        "name": "Meadow Bloom Ivy",
-        "subtitle": "Warm, attentive, and beautifully balanced",
-        "description": "Ivy is the kind of dog who settles a room and still keeps a spark of playful curiosity.",
+        "anchorId": "bailey",
+        "name": "Bailey",
+        "subtitle": "Tramin Golden Girl ",
+        "description": "Bailey’s Mom was imported pregnant with her from the well known Ukrainian Kennel, Tramin. Her father is multi-international Champion, CIB Goldenrush Good Life. She is sweet, intelligent, and keen to please, and a prime example of everything the European type is bred for, with a blockier build, and a beautiful flowing coat.",
         "ctaText": "",
         "details": [
-          "AKC# SS11223344",
-          "DNA# V998877",
-          "Hips: FCI A/A",
-          "Elbows: FCI 0/0",
-          "Heart: (Cardiologist) Clear",
-          "Eyes: (Ophthalmologist) Normal"
+          "AKC# SS28021104",
+          "CHIC#: 197527",
+          "OFA hip: Good",
+          "OFA elbow: Normal",
+          "OFA heart: (Cardiologist) Normal",
+          "OFA eye: (Opthomologist) Normal",
+          "Genetic Panel: CMS, DEB, EIC, MD, OI, PRCD, PRA 1&2, DM, NCL, ICT 1&2: ALL CLEAR"
         ],
         "images": [
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/ivy.jpg",
-            "alt": "A female golden retriever relaxing on a porch"
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956756/IMG_6932_td93sa.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956756/IMG_6930_alkx6g.jpg",
+            "alt": ""
           }
         ]
       },
       {
         "active": true,
-        "anchorId": "brightwater-june",
-        "name": "Brightwater June",
-        "subtitle": "Happy, social, and deeply connected",
-        "description": "June is affectionate, biddable, and naturally at ease with both children and adults.",
+        "anchorId": "lexy",
+        "name": "Lexy",
+        "subtitle": "Tramin Rosegold Rush",
+        "description": "Lexy has a classic Golden temperament, happy and outgoing. She has a very blocky, classic English Golden build and long fluffy coat. Lexy’s father is multi-international Champion, CIB Goldenrush Good Life. Her mom was imported pregnant with her from the well known Ukrainian Kennel, Tramin.",
         "ctaText": "",
         "details": [
-          "AKC# SS06748101",
-          "DNA# V871938",
-          "Hips: FCI A/A",
-          "Elbows: FCI 0/0",
-          "Heart: (Cardiologist) Clear",
-          "Eyes: (Ophthalmologist) Normal",
-          "Genetic Panel: PRCD, PRA 1&2, DM, MD, NCL, ICT 1&2, RD, OI, CMS, DEB: ALL CLEAR"
+          "AKC# SS28021109\n",
+          "OFA hip: Good",
+          "OFA elbow: Normal",
+          "OFA heart: Normal",
+          "OFA eye: (Opthomologist) Normal",
+          "OFA thyroid: Normal",
+          "OFA Patella: Normal",
+          "OFA dentition: Normal",
+          "Genetic Panel: CMS, DEB, EIC, MD, OI, PRCD, PRA 1&2, DM, NCL, ICT 1&2: ALL CLEAR"
         ],
         "images": [
           {
-            "url": "https://res.cloudinary.com/demo/image/upload/v1/brightside-goldens/june.jpg",
-            "alt": "A female golden retriever looking toward the camera in a field"
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778957055/IMG_9119_uf9rxj.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778957057/IMG_9117_tepg6o.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778957055/IMG_9120_hqeuhp.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778957053/IMG_5946_d4qljt.jpg",
+            "alt": ""
+          }
+        ]
+      },
+      {
+        "active": true,
+        "anchorId": "katie",
+        "name": "Katie",
+        "subtitle": "Milano's Sweet Cream and Sugar",
+        "description": "Katie is a cute, petite lady with a big personality. She is so sweet and affectionate, a constant \"talker\" and obsessed with tennis balls. Her favorite thing is to curl up on your lap and watch movies. She is on the smaller end of standard at 55lbs.\n\n",
+        "ctaText": "",
+        "details": [
+          "AKC# SS19307507  ",
+          "OFA hip: Good ",
+          "OFA elbow: Normal ",
+          "OFA heart: (Practitioner) Normal ",
+          "OFA eye: (Opthomologist) Normal ",
+          "Genetic Panel: CMS, DEB, EIC, MD, OI, PRCD, PRA 1&2, DM, NCL, ICT 1: ALL CLEAR"
+        ],
+        "images": [
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956804/IMG_2224_vjmryw.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956805/IMG_6975_sxcfqo.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956804/IMG_1885_lkyzby.jpg",
+            "alt": ""
+          },
+          {
+            "url": "https://res.cloudinary.com/dt0zqz2pd/image/upload/v1778956804/IMG_1886_vdbltf.jpg",
+            "alt": ""
           }
         ]
       }
@@ -345,8 +593,8 @@
     ]
   },
   "contactUs": {
-    "title": "Reach out to talk about litters, timing, and next steps.",
-    "intro": "We would love to hear from you if you are interested in a Brightside Goldens puppy or want to learn more about our program."
+    "title": "Feel free to reach out! ",
+    "intro": "We are happy to answer any questions!"
   },
   "faqs": {
     "items": [
@@ -395,6 +643,12 @@
           "qqq",
           "eee",
           "www"
+        ]
+      },
+      {
+        "question": "Whats your Phone number, Babe?",
+        "answer": [
+          "psdfj"
         ]
       }
     ]

@@ -28,9 +28,9 @@
 
   <div class="arrival-copy" *ngIf="litter.status === 'ARRIVED'">
     <p *ngIf="litter.readyToGoHomeText">{{ litter.readyToGoHomeText }}</p>
-    <p class="cta-copy">
-      <a class="cta-link" routerLink="/contact-us">Contact us</a>
-      to set up an appointment to select a puppy.
+    <p class="cta-copy" *ngIf="litter.showContactCta !== false">
+      <a class="cta-link" routerLink="/contact-us">{{ litter.contactLinkText || 'Contact us' }}</a>
+      {{ litter.contactTrailingText || 'to set up an appointment to select a puppy.' }}
     </p>
   </div>
 

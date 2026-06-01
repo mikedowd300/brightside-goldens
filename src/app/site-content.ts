@@ -26,6 +26,7 @@ export type DogProfile = {
 };
 
 export type HomePageContent = {
+  title?: string;
   highlights: string[];
   slideshowImages: ImageCard[];
 };
@@ -48,6 +49,9 @@ export type LitterRecord = {
   title: string;
   timeframeText?: string;
   readyToGoHomeText?: string;
+  showContactCta?: boolean;
+  contactLinkText?: string;
+  contactTrailingText?: string;
   sire: LitterParent;
   mother: LitterParent;
   puppyImages?: ImageCard[];
@@ -71,6 +75,7 @@ export type PageContent = {
 
 export type SiteContent = {
   brand: string;
+  tagline?: string;
   home: HomePageContent;
   puppies: PuppiesPageContent;
   ourBoys: PageContent;

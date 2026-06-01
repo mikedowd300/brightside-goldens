@@ -1,4 +1,10 @@
 <article class="dog-card" [attr.id]="dog.anchorId || null">
+  <div class="dog-heading">
+    <h3>{{ dog.name }}</h3>
+    <p class="dog-subtitle">{{ dog.subtitle }}</p>
+    <p class="dog-description">{{ dog.description }}</p>
+  </div>
+
   <div class="dog-top">
     <div class="dog-slideshow" *ngIf="images.length">
       <img
@@ -29,11 +35,5 @@
         </dd>
       </div>
     </dl>
-  </div>
-
-  <div class="dog-copy">
-    <h3>{{ dog.name }}</h3>
-    <p class="dog-subtitle">{{ dog.subtitle }}</p>
-    <p>{{ dog.description }}</p>
   </div>
 </article>

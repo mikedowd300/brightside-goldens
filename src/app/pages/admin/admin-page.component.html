@@ -108,6 +108,18 @@
           <span>Site Title</span>
           <input type="text" [(ngModel)]="site.brand" (ngModelChange)="onStructuredChange()" />
         </label>
+        <label>
+          <span>Tagline</span>
+          <input type="text" [(ngModel)]="site.tagline" (ngModelChange)="onStructuredChange()" />
+        </label>
+      </section>
+
+      <section class="field-group">
+        <h2>Home Basics</h2>
+        <label>
+          <span>Home Panel Title</span>
+          <input type="text" [(ngModel)]="site.home.title" (ngModelChange)="onStructuredChange()" />
+        </label>
       </section>
 
       <section class="field-group">

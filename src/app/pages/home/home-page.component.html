@@ -20,7 +20,7 @@
       </div>
 
     <div class="highlight-panel" *ngIf="content.highlights?.length">
-      <h2>Brightside Goldens</h2>
+      <h2>{{ content.title || 'Brightside Goldens' }}</h2>
       <ul class="highlight-list">
         <li *ngFor="let highlight of content.highlights">{{ highlight }}</li>
       </ul>
