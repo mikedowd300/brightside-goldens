@@ -5,7 +5,11 @@
     <title>Brightside Goldens</title>
     <script>
       (function () {
-        var repoBase = '/brightside-goldens/';
+        function getBasePath(pathname) {
+          return pathname.indexOf('/brightside-goldens/') === 0 ? '/brightside-goldens/' : '/';
+        }
+
+        var repoBase = getBasePath(window.location.pathname);
         var pathname = window.location.pathname;
         var path = pathname.indexOf(repoBase) === 0 ? pathname.slice(repoBase.length) : pathname;
         var search = window.location.search ? window.location.search.slice(1).replace(/&/g, '~and~') : '';

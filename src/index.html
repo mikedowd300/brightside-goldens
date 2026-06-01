@@ -13,6 +13,10 @@
   <body>
     <script>
       (function () {
+        function getBasePath(pathname) {
+          return pathname.indexOf('/brightside-goldens/') === 0 ? '/brightside-goldens/' : '/';
+        }
+
         var redirect = window.location.search.match(/[?&]p=([^&]+)/);
         var query = window.location.search.match(/[?&]q=([^&]+)/);
 
@@ -21,7 +25,8 @@
         }
 
         var path = decodeURIComponent(redirect[1]).replace(/~and~/g, '&');
-        var cleanUrl = window.location.origin + '/brightside-goldens/' + path.replace(/^\/+/, '');
+        var basePath = getBasePath(window.location.pathname);
+        var cleanUrl = window.location.origin + basePath + path.replace(/^\/+/, '');
 
         if (query) {
           cleanUrl += '?' + decodeURIComponent(query[1]).replace(/~and~/g, '&');
