@@ -60,7 +60,7 @@
 }
 
 .highlight-panel {
-  padding: 2.5rem;
+  padding: 1.5rem;
   background: #427884;
   color: #fdf8ef;
   border-top-left-radius: 0;
@@ -81,11 +81,15 @@
   gap: 0.8rem;
 }
 
+.highlight-list.no-title {
+  margin-top: 0;
+}
+
 .highlight-list li {
   display: flex;
   align-items: flex-start;
   gap: 0.7rem;
-  font-size: 1.08rem;
+  font-size: 1.25rem;
   line-height: 1.6;
 }
 
@@ -95,7 +99,7 @@
   margin-top: 0.15rem;
   color: #ffffff;
   font-family: 'Material Symbols Rounded';
-  font-size: 1.05rem;
+  font-size: 1.45rem;
   font-weight: normal;
   font-style: normal;
   line-height: 1;

@@ -20,8 +20,8 @@
       </div>
 
     <div class="highlight-panel" *ngIf="content.highlights?.length">
-      <h2>{{ content.title || 'Brightside Goldens' }}</h2>
-      <ul class="highlight-list">
+      <h2 *ngIf="content.title?.trim()">{{ content.title }}</h2>
+      <ul class="highlight-list" [class.no-title]="!content.title?.trim()">
         <li *ngFor="let highlight of content.highlights">{{ highlight }}</li>
       </ul>
     </div>
